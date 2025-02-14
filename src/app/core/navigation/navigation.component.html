@@ -1,0 +1,27 @@
+<nav class="grid grid-cols-3 max-lg:grid-cols-4 h-[4.5rem] bg-gradient-to-r from-[#12032a] to-[#021424]">
+  <div class="max-lg:col-span-3 mx-10"><img src="assets/images/NimmariValkoinen.png" alt="signature" class="h-16 align-middle self-center"></div>
+  <div class="flex flew-row justify-center gap-4 py-4 max-lg:hidden">
+    <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/home') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="home()">Home</button>
+    <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/code') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="code()">Code</button>
+    <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/music') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="music()">Music</button>
+    <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/about') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="about()">About</button>
+  </div>
+  <div class="flex flew-row justify-center gap-4 py-4 max-lg:hidden">
+    <button class="transition hover:bg-slate-200 bg-[#ffab7ae8] duration-150 text-slate-100 font-semibold hover:text-black py-2 px-4 border border-white hover:shadow-xl hover:border-slate-100 rounded-2xl hover:scale-[1.05]" (click)="contact()">Contact Me</button>
+  </div>
+  <div class="lg:hidden ">
+    <div class="my-auto" >
+    <button mat-icon-button style="height: 4rem; width: 4rem;" [matMenuTriggerFor]="menu"><mat-icon class= "!text-white !text-5xl !size-[3rem] transition duration-200">menu</mat-icon></button></div>
+    <mat-menu #menu="matMenu" class="!w-[18rem] !bg-slate-800 ">
+      <button mat-menu-item class="!text-center !text-white" (click)="home()">Home</button>
+      <button mat-menu-item class="!text-center !text-white" (click)="code()">Code</button>
+      <button mat-menu-item class="!text-center !text-white" (click)="music()">Music</button>
+      <button mat-menu-item class="!text-center !text-white" (click)="about()">About</button>
+      <button mat-menu-item class="!text-center !text-white" (click)="contact()">Contact Me</button>
+    </mat-menu>
+
+  </div>
+
+</nav>
+<hr class="h-0.5 border-t-0 bg-slate-200 drop-shadow-[1px_1px_2px_rgba(150,250,100,0.5)]" />
+

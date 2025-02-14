@@ -1,0 +1,6 @@
+<app-navigation></app-navigation>
+<div [@routeAnimations]="getRouteAnimation(outlet)" class="content" >
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+<app-footer class="lg:fixed
+bottom-0 w-screen"></app-footer>
