@@ -1,0 +1,5 @@
+@layer components {
+  .custom-dialog-container .mat-mdc-dialog-container {
+    border-radius: 0;
+  }
+}
