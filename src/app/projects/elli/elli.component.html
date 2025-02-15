@@ -15,9 +15,9 @@
   </div>
 
   <div
-    class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-b-lg bg-[#2b2b2b7e] inset-shadow-black inset-shadow-sm flex flex-row justify-between"
+    class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-b-lg bg-[#2b2b2b7e] inset-shadow-black inset-shadow-sm flex lg:flex-row max-lg:flex-col-reverse max-lg:gap-4 justify-between"
   >
-    <div class="w-[50%]">
+    <div class="lg:w-[50%] max-lg:text-center items-center">
       <h3 class="text-2xl underline">Description</h3>
       <p>
         <span class="font-semibold">Elli</span> was our team's FF Ticorporate
@@ -30,7 +30,7 @@
       <p>
         <span class="font-semibold">My job</span> was mainly on the frontend
         side of the project. I spent copious amounts of time on the different
-        calendar and task management features, as well as the filtering modules.
+        <span class="font-semibold">calendar and task management features</span>, as well as the <span class="font-semibold">filtering and confirmation modules</span>.
         Working with <span class="font-semibold text-red-500">Angular</span> and
         <span class="font-semibold text-blue-400">Tailwind</span>, I was able to
         create a visually appealing and user-friendly interfac that followed the
@@ -44,7 +44,7 @@
         We used the agile method of <span class="font-semibold">Scrum</span> for
         this project. Our sprints were 2 weeks long, and we had daily scrum
         meetings to keep track on what everyone was doing. At the end of the
-        sprint we would have a Sprint Review with Elisa Oyj to give feedback on
+        sprint we would have a <span class="font-semibold">Sprint Review with Elisa Oyj</span> to give feedback on
         the project and Sprint Retrospective to reflect on the sprint. At the
         start of the new sprint, we would have a Sprint Planning meeting where
         we would decide on the tasks for the next sprint with the help of the
@@ -61,60 +61,61 @@
         yearly calendar with filtering based on project type and time.
       </p>
     </div>
-
+    <div class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4 items-center">
+      <h3 class="text-2xl underline text-center">Images</h3>
+      <button class="hover:scale-[1.1] duration-200" (click)="openDialog(login)"><img class="w-[10rem]" src="/screenshots/elli/ElliLogin.png"></button>
+      <button class="hover:scale-[1.1] duration-200" (click)="openDialog(cards)"><img class="w-[10rem]" src="/screenshots/elli/elli-cards.png"></button>
+      <button class="hover:scale-[1.1] duration-200" (click)="openDialog(yearlycal)"><img class="w-[10rem]" src="/screenshots/elli/elli-yearlycal.png"></button>
+      <button class="hover:scale-[1.1] duration-200" (click)="openDialog(filtering)"><img class="w-[10rem]" src="/screenshots/elli/elli-filtering.png"></button>
+      <button class="hover:scale-[1.1] duration-200" (click)="openDialog(confirmation)"><img class="w-[10rem]" src="/screenshots/elli/elli-confirmation.png"></button>
+      <button class="hover:scale-[1.1] duration-200" (click)="openDialog(archive)"><img class="w-[10rem]" src="/screenshots/elli/elli-archive.png"></button>
+    </div>
     <div class="flex flex-col gap-4">
-      <div class="flex flex-row gap-10 justify-between">
+      <div class="flex flex-row gap-10 lg:justify-between max-lg:justify-center">
         <div class="flex">
           <div
-            class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs"
+            class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4"
           >
-            <h3 class="text-2xl underline">Roles</h3>
-            <div class="flex flex-col justify-end gap-3">
-              <p>Frontend Developer</p>
-              <p>Project Manager</p>
-              <p>The helping hand</p>
+          <div class="text-center">
+            <h3 class="text-2xl underline">Project Status</h3>
+            <p>Completed</p>
+            <p>Time spent: ~450 hours</p></div>
+            <div>
+              <h3 class="text-2xl underline text-center">Roles</h3>
+              <div class="flex flex-col justify-end gap-3 text-center">
+                <p>Frontend Developer</p>
+                <p>Project Manager</p>
+                <p>The helping hand</p>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="flex">
-          <div
-            class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs"
-          >
-            <h3 class="text-2xl underline text-center">Technologies used</h3>
-            <div class="flex flex-row justify-end gap-4">
-              <div class="flex flex-col justify-center items-center p-2">
-                <i class="devicon-angularjs-plain colored text-6xl"></i>
-                <p>Angular</p>
-              </div>
-              <div class="flex flex-col justify-center items-center">
-                <i class="devicon-tailwindcss-plain colored text-6xl"></i>
-                <p>Tailwind</p>
-              </div>
-              <div class="flex flex-col justify-center items-center">
-                <i class="devicon-typescript-plain colored text-6xl"></i>
-                <p>TypeScript</p>
-              </div>
-              <div class="flex flex-col justify-center items-center">
-                <i class="devicon-github-plain colored text-6xl"></i>
-                <p>GitHub</p>
+            <div>
+              <h3 class="text-2xl underline text-center">Technologies I used</h3>
+              <div class="flex flex-row flex-wrap justify-end gap-4">
+                <div class="flex flex-col justify-center items-center p-2">
+                  <i class="devicon-angularjs-plain colored text-6xl"></i>
+                  <p>Angular</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-tailwindcss-plain colored text-6xl"></i>
+                  <p>Tailwind</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-typescript-plain colored text-6xl"></i>
+                  <p>TypeScript</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-github-plain colored text-6xl"></i>
+                  <p>GitHub</p>
+                </div>
+                <div class="flex flex-col justify-center items-center"><i class="devicon-figma-plain colored text-6xl"></i><p>Figma</p></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-row gap-10 justify-between">
 
-        <div class="flex">
 
-      <div class="flex">
-        <div
-          class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs"
-        >
-          <h3 class="text-2xl underline">Project Status</h3>
-          <p>Completed</p>
-          <p>Time spent: ~450 hours</p>
-        </div>
-      </div>
+    </div>
   </div>
 </div>
