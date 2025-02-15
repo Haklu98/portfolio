@@ -20,13 +20,13 @@ export class HomeComponent implements OnInit {
     const hour = date.getHours();
 
     if (hour < 5) {
-      this.greeting = 'Greetings, fellow night owl';
+      this.greeting = 'Hello there, insomniac!';
     } else if (hour < 12) {
-      this.greeting = 'Good Morning, fellow traveller';
+      this.greeting = 'Good Morning, my friend!';
     } else if (hour < 18) {
-      this.greeting = 'Good Afternoon, fellow traveller';
+      this.greeting = 'Good Afternoon, you!';
     } else if (hour < 24) {
-      this.greeting = 'Good Evening, fellow traveller';
+      this.greeting = 'Good Evening, fellow traveller!';
     }
   }
 
