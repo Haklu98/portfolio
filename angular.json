@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AleksiHakala": {
+    "AleksiHakalaPortfolio": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/aleksi-hakala",
+            "outputPath": "dist/aleksi-hakala-portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AleksiHakala:build:production"
+              "buildTarget": "AleksiHakalaPortfolio:build:production"
             },
             "development": {
-              "buildTarget": "AleksiHakala:build:development"
+              "buildTarget": "AleksiHakalaPortfolio:build:development"
             }
           },
           "defaultConfiguration": "development"
