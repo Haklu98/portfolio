@@ -32,7 +32,7 @@ export class MusicComponent {
   soloproject = 'soloproject';
   videogamemusic = 'videogamemusic';
 
-  open(path: string) { this.router.navigate([path]); }
+  open(path: string) { this.router.navigate([path], { skipLocationChange: true }); }
 
 
 }

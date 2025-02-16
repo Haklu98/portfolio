@@ -13,7 +13,7 @@ export class VideogamemusicComponent {
   constructor(private router: Router) {}
 
     backToMusic() {
-      this.router.navigate(['music']);
+      this.router.navigate(['music'], { skipLocationChange: true });
     }
 
 }

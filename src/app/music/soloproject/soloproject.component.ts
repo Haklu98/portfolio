@@ -11,11 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 export class SoloprojectComponent {
 
 
-      constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
-      backToMusic() {
-        this.router.navigate(['music']);
-      }
+backToMusic() {
+      this.router.navigate(['music'], { skipLocationChange: true });
+    }
 
 
 }
