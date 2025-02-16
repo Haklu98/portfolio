@@ -15,4 +15,8 @@ export class MusicprodComponent {
     backToMusic() {
       this.router.navigate(['music'], { skipLocationChange: true });
     }
+
+    contact() {
+      this.router.navigate(['contact'], { skipLocationChange: true });
+    }
 }
