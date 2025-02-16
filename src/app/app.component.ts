@@ -68,7 +68,17 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
                     animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
                   ], { optional: false })
                 ])]),
-
+                transition('ContactPage => *', [
+                  query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
+                  group([
+                    query(':leave', [
+                      animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateY(-100px)' }))
+                    ], { optional: true }),
+                    query(':enter', [
+                      style({ opacity: 0, transform: 'translateY(100px)' }),
+                      animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
+                    ], { optional: false })
+                  ])]),
     ])
   ]
 })

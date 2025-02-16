@@ -24,18 +24,17 @@ import { MAT_DIALOG_DATA,
 export class MusicComponent {
   readonly dialog = inject(MatDialog);
 
-  band = BandComponent;
-  livemix = LivemixComponent;
-  musicprod = MusicprodComponent;
-  soloproject = SoloprojectComponent;
-  videogamemusic = VideogamemusicComponent;
+  constructor(private router: Router) {}
 
-  openDialog(component: any): void {
-    const dialogRef = this.dialog.open(component, {
-      maxWidth: '90vw',
-      maxHeight: '90vh',
-      panelClass: 'custom-dialog-container'
-    });
-  }
+  band = 'band';
+  livemix = 'livemix';
+  musicprod = 'musicprod';
+  soloproject = 'soloproject';
+  videogamemusic = 'videogamemusic';
+
+  open(path: string) { this.router.navigate([path]); }
+
 
 }
+
+
