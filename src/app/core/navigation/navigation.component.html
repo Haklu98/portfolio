@@ -3,7 +3,6 @@
   <div class="flex flew-row justify-center gap-4 py-4 max-lg:hidden">
     <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/home') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="home()">Home</button>
     <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/code') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="code()">Code</button>
-    <button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/music') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="music()">Music</button>
     <!--<button [ngClass]="{ 'scale-[1.05] !bg-slate-200 !text-black !font-semibold': isActive('/about') }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl" (click)="about()">About</button>-->
   </div>
   <div class="flex flew-row justify-center gap-4 py-4 max-lg:hidden">
@@ -15,7 +14,6 @@
     <mat-menu #menu="matMenu" class="!w-[18rem] !bg-slate-800 ">
       <button mat-menu-item class="!text-center !text-white" (click)="home()">Home</button>
       <button mat-menu-item class="!text-center !text-white" (click)="code()">Code</button>
-      <button mat-menu-item class="!text-center !text-white" (click)="music()">Music</button>
       <!--<button mat-menu-item class="!text-center !text-white" (click)="about()">About</button>-->
       <button mat-menu-item class="!text-center !text-white" (click)="contact()">Contact Me</button>
     </mat-menu>

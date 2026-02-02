@@ -15,4 +15,12 @@ export class CodeComponent {
     this.router.navigate(['elli'], { skipLocationChange: true });
   }
 
+  openTurvajatkat() {
+    this.router.navigate(['turvajatkat'], { skipLocationChange: true });
+  }
+
+  openMusicportfolio() {
+    this.router.navigate(['musicportfolio'], { skipLocationChange: true });
+  }
+
 }

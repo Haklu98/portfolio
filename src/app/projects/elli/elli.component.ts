@@ -18,7 +18,7 @@ import { FilteringComponent } from './dialogs/filtering/filtering.component';
 
 @Component({
   selector: 'app-elli',
-  imports: [MatIconModule, LoginComponent, CardsComponent, ArchiveComponent, ConfirmationComponent, YearlycalComponent, FilteringComponent],
+  imports: [MatIconModule],
   templateUrl: './elli.component.html',
   styleUrl: './elli.component.css'
 })

@@ -1,6 +1,6 @@
-<div class="flex max-lg:flex-col-reverse lg:flex gap-10 p-2 bg-radial">
+<div class="flex max-lg:flex-col lg:flex gap-10 p-2 bg-radial">
   <div
-    class="text-white max-lg:flex-col-reverse max-lg:flex max-lg:gap-10 flex flex-col gap-10"
+    class="text-white max-lg:flex-col max-lg:flex max-lg:gap-10 flex flex-col gap-10"
   >
     <div
       class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm"
@@ -9,12 +9,10 @@
         <h1 class="text-6xl text-white">CODE</h1>
         <br />
         <p class="text-white">
-          <span class="font-semibold">I'm currently studying</span> Business
-          Information Technology at Jamk University of Applied Sciences.
+          <span class="font-semibold">I'm recently graduated Bachelor of Business Information Technology</span> from Jamk University of Applied Sciences.
         </p>
         <p>
-          As of now, I'm working on my thesis concerning AWS Supply Chain
-          Optimization and Realistic Data Generation using AI.
+          As of now I'm looking for software development related positions, where I can put my skills and knowledge into good use. I have a versatile set of skills and my studies focused on full-stack development.
         </p>
         <br />
         <p class="text-white">
@@ -33,10 +31,13 @@
         </p>
         <br />
         <p class="text-white">
-          <span class="font-semibold">Additionally to my studies</span> I have
-          also been learning few different languages such as
+          <span class="font-semibold">As for my internship</span> I worked with Skillwell Oy
+          in the cloud development field. Where I was part of a team that built a cloud-based business offer evaluator tool.
+          During this project I was able to familiarize myself with different Machine Learning models like Nove-Pro and Claude 3 Sonnet.
+          My job was also to do the API-integration between hankintailmoitukset.fi and the evaluator tool.
+          With the help of this internship I was able to further solidify my knowledge of
           <span class="text-green-400 font-semibold">Python</span> and
-          <span class="text-pink-400 font-semibold">C#</span>.
+          <span class="text-cyan-300 font-semibold">React</span>.
         </p>
       </article>
     </div>
@@ -48,7 +49,7 @@
       </div>
 
       <div
-        class="flex flex-row flex-wrap gap-2 p-4 bg-[#68686813] border-[#4b912f31] border-[1px] inset-shadow-sm inset-shadow-black h-[16rem]"
+        class="flex flex-row flex-wrap gap-8 p-4 bg-[#68686813] border-[#4b912f31] border-[1px] inset-shadow-sm inset-shadow-black h-[16rem]"
       >
         <div class="flex flex-col w-20">
           <button (click)="openElli()"
@@ -56,6 +57,22 @@
           >
             <img src="/ElliShortcut.png" alt="Elli" class="h-20 w-20" />
             <p class="text-center text-sm text-white">Elli-Ticorporate</p>
+          </button>
+        </div>
+         <div class="flex flex-col w-20">
+          <button (click)="openTurvajatkat()"
+            class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
+          >
+            <img src="/turvajatkatShortcut.png" alt="Turvajätkät" class="h-20 w-20" />
+            <p class="text-center text-sm text-white">Turvajätkät</p>
+          </button>
+        </div>
+         <div class="flex flex-col w-20">
+          <button (click)="openMusicportfolio()"
+            class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
+          >
+            <img src="/MusicShortcut.png" alt="Music Portfolio" class="h-20 w-20" />
+            <p class="text-center text-sm text-white">Music portfolio</p>
           </button>
         </div>
       </div>
@@ -87,7 +104,7 @@
           <div class="flex flex-col justify-center items-center">
             <i class="devicon-python-plain colored text-6xl"></i>
             <p>Python</p>
-            <p>2/10</p>
+            <p>4/10</p>
           </div>
           <div class="flex flex-col justify-center items-center">
             <i class="devicon-css3-plain colored text-6xl"></i>
@@ -128,6 +145,12 @@
               class="devicon-angularjs-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
             ></i>
             <p class="text-white">Angular</p>
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <i
+              class="devicon-react-original colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
+            ></i>
+            <p class="text-white">React</p>
           </div>
           <div class="flex flex-col justify-center items-center">
             <i
@@ -192,6 +215,18 @@
                 target="_blank"
                 ><img
                   src="aws-academy-graduate-aws-academy-cloud-architecting.png"
+                  alt="aws-cloud-foundations"
+                  class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
+              /></a>
+              <p class="text-center text-white">AWS Cloud Architecting</p>
+            </div>
+            <div class="flex flex-col lg:justify-center lg:items-center">
+              <a
+                class="flex justify-center"
+                href="https://www.credly.com/badges/84c50a0e-75ba-44c5-b313-74309173583d/public_url"
+                target="_blank"
+                ><img
+                  src="aws-certified-cloud-practitioner.png"
                   alt="aws-cloud-foundations"
                   class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
               /></a>

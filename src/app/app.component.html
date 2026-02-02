@@ -1,6 +1,7 @@
-<app-navigation></app-navigation>
-<div [@routeAnimations]="getRouteAnimation(outlet)" class="content" >
-  <router-outlet #outlet="outlet"></router-outlet>
+<div class="min-h-screen flex flex-col">
+  <app-navigation></app-navigation>
+  <div [@routeAnimations]="getRouteAnimation(outlet)" class="content flex-grow" >
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer class="lg:fixed
-bottom-0 w-screen"></app-footer>

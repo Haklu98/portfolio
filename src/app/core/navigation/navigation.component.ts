@@ -24,10 +24,6 @@ export class NavigationComponent {
     this.router.navigate(['code'], { skipLocationChange: true });
   }
 
-  music() {
-    this.router.navigate(['music'], { skipLocationChange: true });
-  }
-
   about() {
     this.router.navigate(['about'], { skipLocationChange: true });
   }

@@ -1,0 +1,111 @@
+<div class="flex flex-col p-4">
+  <div
+    class="flex flex-row justify-between items-center bg-gradient-to-b from-[#0d688370] to-[#2b2b2b7e] border-[#ffffff83] border-[1px]"
+  >
+    <h2 class="text-4xl">Music Portfolio Website</h2>
+    <button
+      class="h-[4rem] w-[4rem] flex justify-center items-center !hover:text-white hover:bg-gradient-to-b from-[#ff0d0d70] to-[#79000080]"
+      (click)="close()"
+    >
+      <mat-icon
+        class="!text-slate-300 !text-5xl !size-[3rem] transition duration-200"
+        >close</mat-icon
+      >
+    </button>
+  </div>
+
+  <div
+    class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-b-lg bg-[#2b2b2b7e] inset-shadow-black inset-shadow-sm flex lg:flex-row max-lg:flex-col-reverse max-lg:gap-4 justify-between"
+  >
+    <div class="lg:w-[50%] max-lg:text-center items-center">
+      <h3 class="text-2xl underline">Description</h3>
+      <p>
+        <span class="font-semibold">Music Portfolio Website</span> is a web development project
+        I created to showcase my musical works and audio production skills. The website serves
+        as a digital portfolio for my music career, featuring audio samples, latest releases,
+        and professional information for potential collaborators and clients.
+      </p>
+      <br />
+      <p>
+        <span class="font-semibold">The website</span> includes features such as
+        <span class="font-semibold">audio streaming</span> through soundcloud's embed player,
+        <span class="font-semibold">project showcases</span> with descriptions of my work,
+        and <span class="font-semibold">contact forms</span> for booking inquiries.
+        The website also provides information about my background in music production.
+      </p>
+      <br />
+      <h3 class="text-2xl underline">Key Features</h3>
+      <p>
+        The website includes responsive design to ensure optimal viewing on various devices, a language switcher for english and finnish,
+        SEO optimization to enhance online visibility, and work-in-progress social media integration.
+        The website is built using <span class="font-semibold">React</span> for the front-end,
+        with <span class="font-semibold">AWS</span> services for hosting and backend functionalities.
+        The AWS infrastructure uses AWS CDK for easy deployment and management, ensuring scalability and reliability.
+        It's hosted through <span class="font-semibold">AWS S3</span> with a <span class="font-semibold">CloudFront</span> distribution for fast content delivery,
+        and <span class="font-semibold">AWS Route 53</span> for domain management.
+      </p>
+      <br />
+      <h3 class="text-2xl underline">Development Status</h3>
+      <p>
+        <span class="font-semibold">Currently</span> this project is in active development.
+        I am implementing additional features such as built-in music player so I don't have to rely on external services, social media integration,
+        and content management capabilities. Implementation of AWS Dynamo DB as database is planned for future development. The site will continue to evolve
+        as my music portfolio grows.
+      </p>
+    </div>
+    <div class="border-[#ffffff83] border-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4 items-center self-start">
+      <h3 class="text-2xl underline text-center">Live Website</h3>
+      <a href="https://www.hakalamusic.com/" target="_blank"
+         class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 hover:scale-105">
+        Visit hakalamusic.com
+      </a>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row gap-10 lg:justify-between max-lg:justify-center">
+        <div class="flex">
+          <div
+            class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4"
+          >
+          <div class="text-center">
+            <h3 class="text-2xl underline">Project Status</h3>
+            <p>In Development</p>
+            <p>Time spent: ~80 hours</p></div>
+            <div>
+              <h3 class="text-2xl underline text-center">Roles</h3>
+              <div class="flex flex-col justify-end gap-3 text-center">
+                <p>Full-Stack Developer</p>
+                <p>UI/UX Designer</p>
+                <p>Content Creator</p>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl underline text-center">Technologies Used</h3>
+              <div class="flex flex-row flex-wrap justify-end gap-4">
+                <div class="flex flex-col justify-center items-center p-2">
+                  <i class="devicon-react-original colored text-6xl"></i>
+                  <p>React + Vite</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-amazonwebservices-plain colored text-6xl"></i>
+                  <p>AWS</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-typescript-plain colored text-6xl"></i>
+                  <p>TypeScript</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-css3-plain colored text-6xl"></i>
+                  <p>CSS</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                  <i class="devicon-nodejs-plain colored text-6xl"></i>
+                  <p>Node.js</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
