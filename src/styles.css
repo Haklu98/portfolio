@@ -17,13 +17,21 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Montserrat; }
 
 
-/* Chrome, Edge ja Safari */
-::-webkit-scrollbar {
-  display: none;
+/* Thin scrollbar that blends into the dark theme (kept visible so users can see and grab it) */
+html {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #475569 transparent;
 }
 
-/* Firefox */
-* {
-  scrollbar-width: none;
-  -ms-overflow-style: none; /* IE ja Edge */
+/* Chrome, Edge ja Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 4px;
 }
