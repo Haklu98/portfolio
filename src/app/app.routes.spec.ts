@@ -1,18 +1,18 @@
 import { TestBed } from '@angular/core/testing';
-import { Router, provideRouter } from '@angular/router';
+import { Router, provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
 import { routes } from './app.routes';
 import { HomeComponent } from './pages/home/home.component';
 import { CodeComponent } from './pages/code/code.component';
-import { ElliComponent } from './projects/elli/elli.component';
+import { ProjectComponent } from './pages/project/project.component';
 
 describe('app routes', () => {
   let harness: RouterTestingHarness;
   let router: Router;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({ providers: [provideRouter(routes)] });
+    TestBed.configureTestingModule({ providers: [provideRouter(routes, withComponentInputBinding())] });
     harness = await RouterTestingHarness.create();
     router = TestBed.inject(Router);
   });
@@ -31,8 +31,19 @@ describe('app routes', () => {
     await harness.navigateByUrl('/code', CodeComponent);
     expect(router.url).toBe('/code');
 
-    await harness.navigateByUrl('/elli', ElliComponent);
-    expect(router.url).toBe('/elli');
+    await harness.navigateByUrl('/projects/elli', ProjectComponent);
+    expect(router.url).toBe('/projects/elli');
+  });
+
+  it('should redirect old project URLs to /projects/:slug', async () => {
+    await harness.navigateByUrl('/elli', ProjectComponent);
+    expect(router.url).toBe('/projects/elli');
+
+    await harness.navigateByUrl('/turvajatkat', ProjectComponent);
+    expect(router.url).toBe('/projects/turvajatkat');
+
+    await harness.navigateByUrl('/musicportfolio', ProjectComponent);
+    expect(router.url).toBe('/projects/musicportfolio');
   });
 
   it('should redirect unknown URLs to the home page', async () => {

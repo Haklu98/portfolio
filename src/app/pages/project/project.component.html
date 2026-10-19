@@ -1,0 +1,91 @@
+@if (project(); as p) {
+<div class="flex flex-col p-4">
+  <div
+    class="flex flex-row justify-between items-center bg-gradient-to-b from-[#0d688370] to-[#2b2b2b7e] border-[#ffffff83] border-[1px]"
+  >
+    <h2 class="text-4xl">{{ p.name }}</h2>
+    <a
+      routerLink="/code"
+      aria-label="Back to projects"
+      class="h-[4rem] w-[4rem] flex justify-center items-center !hover:text-white hover:bg-gradient-to-b from-[#ff0d0d70] to-[#79000080]"
+    >
+      <mat-icon
+        class="!text-slate-300 !text-5xl !size-[3rem] transition duration-200"
+        >close</mat-icon
+      >
+    </a>
+  </div>
+
+  <div
+    class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-b-lg bg-[#2b2b2b7e] inset-shadow-black inset-shadow-sm flex lg:flex-row max-lg:flex-col-reverse max-lg:gap-4 justify-between"
+  >
+    <div class="lg:w-[50%] max-lg:text-center items-center">
+      @for (section of p.sections; track section.heading; let lastSection = $last) {
+        <h3 class="text-2xl underline">{{ section.heading }}</h3>
+        @for (paragraph of section.paragraphs; track $index; let lastParagraph = $last) {
+          <p [innerHTML]="paragraph"></p>
+          @if (!(lastSection && lastParagraph)) {
+            <br />
+          }
+        }
+      }
+    </div>
+
+    @if (p.images?.length) {
+      <div class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4 items-center">
+        <h3 class="text-2xl underline text-center">Images</h3>
+        @for (image of p.images; track image.src) {
+          <button type="button" class="hover:scale-[1.1] duration-200" (click)="openImage(image)" [attr.aria-label]="'Open image: ' + image.alt">
+            <img class="w-[10rem]" [src]="image.src" [alt]="image.alt">
+          </button>
+        }
+      </div>
+    }
+
+    @if (p.liveUrl) {
+      <div class="border-[#ffffff83] border-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4 items-center self-start">
+        <h3 class="text-2xl underline text-center">Live Website</h3>
+        <a [href]="p.liveUrl" target="_blank" rel="noopener"
+           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 hover:scale-105">
+          Visit {{ p.liveLabel }}
+        </a>
+      </div>
+    }
+
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row gap-10 lg:justify-between max-lg:justify-center">
+        <div class="flex">
+          <div
+            class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4"
+          >
+            <div class="text-center">
+              <h3 class="text-2xl underline">Project Status</h3>
+              <p>{{ p.status }}</p>
+              <p>Time spent: ~{{ p.hours }} hours</p>
+            </div>
+            <div>
+              <h3 class="text-2xl underline text-center">Roles</h3>
+              <div class="flex flex-col justify-end gap-3 text-center">
+                @for (role of p.roles; track $index) {
+                  <p>{{ role }}</p>
+                }
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl underline text-center">Technologies Used</h3>
+              <div class="flex flex-row flex-wrap justify-end gap-4">
+                @for (tech of p.technologies; track tech.name) {
+                  <div class="flex flex-col justify-center items-center">
+                    <i class="{{ tech.icon }} colored text-6xl"></i>
+                    <p>{{ tech.name }}</p>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
