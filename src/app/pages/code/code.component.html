@@ -51,30 +51,16 @@
       <div
         class="flex flex-row flex-wrap gap-8 p-4 bg-[#68686813] border-[#4b912f31] border-[1px] inset-shadow-sm inset-shadow-black h-[16rem]"
       >
-        <div class="flex flex-col w-20">
-          <a routerLink="/elli"
-            class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
-          >
-            <img src="/ElliShortcut.png" alt="Elli" class="h-20 w-20" />
-            <p class="text-center text-sm text-white">Elli-Ticorporate</p>
-          </a>
-        </div>
-         <div class="flex flex-col w-20">
-          <a routerLink="/turvajatkat"
-            class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
-          >
-            <img src="/turvajatkatShortcut.png" alt="Turvajätkät" class="h-20 w-20" />
-            <p class="text-center text-sm text-white">Turvajätkät</p>
-          </a>
-        </div>
-         <div class="flex flex-col w-20">
-          <a routerLink="/musicportfolio"
-            class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
-          >
-            <img src="/MusicShortcut.png" alt="Music Portfolio" class="h-20 w-20" />
-            <p class="text-center text-sm text-white">Music portfolio</p>
-          </a>
-        </div>
+        @for (project of projects; track project.slug) {
+          <div class="flex flex-col w-20">
+            <a [routerLink]="['/projects', project.slug]"
+              class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
+            >
+              <img [src]="project.thumbnail" [alt]="project.name" class="h-20 w-20" />
+              <p class="text-center text-sm text-white">{{ project.cardTitle }}</p>
+            </a>
+          </div>
+        }
       </div>
     </div>
   </div>
@@ -86,31 +72,13 @@
         class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm p-6"
       >
         <div class="flex flex-row gap-6 justify-center max-lg:flex-wrap text-white">
-          <div class="flex flex-col justify-center items-center">
-            <i class="devicon-javascript-plain colored text-6xl text-6xl"></i>
-            <p class="text-white">JavaScript</p>
-            <p>8/10</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i class="devicon-typescript-plain colored text-6xl"></i>
-            <p>TypeScript</p>
-            <p>8/10</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i class="devicon-html5-plain colored text-6xl"></i>
-            <p>HTML</p>
-            <p>9/10</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i class="devicon-python-plain colored text-6xl"></i>
-            <p>Python</p>
-            <p>4/10</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i class="devicon-css3-plain colored text-6xl"></i>
-            <p>CSS</p>
-            <p>9/10</p>
-          </div>
+          @for (skill of primarySkills; track skill.name) {
+            <div class="flex flex-col justify-center items-center">
+              <i class="{{ skill.icon }} colored text-6xl"></i>
+              <p>{{ skill.name }}</p>
+              <p>{{ skill.level }}/10</p>
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -122,72 +90,14 @@
         <div
           class="grid lg:grid-cols-5 lg:gap-4 max-lg:gap-2 lg:justify-between max-lg:justify-center lg:flex-wrap max-lg:grid max-lg:grid-cols-3"
         >
-          <div class="flex flex-col justify-center items-center gap-2">
-            <i
-              class="devicon-amazonwebservices-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">AWS</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-github-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">GitHub</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-visualstudio-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">VSCode</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-angularjs-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">Angular</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-react-original colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">React</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-tailwindcss-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">Tailwind</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-mongodb-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">MongoDB</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-mysql-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class=" text-white">MySQL</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-figma-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">Figma</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-express-original colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">Express</p>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <i
-              class="devicon-docker-plain colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-            ></i>
-            <p class="text-white">Docker</p>
-          </div>
+          @for (skill of utilitySkills; track skill.name) {
+            <div class="flex flex-col justify-center items-center">
+              <i
+                class="{{ skill.icon }} colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
+              ></i>
+              <p class="text-white">{{ skill.name }}</p>
+            </div>
+          }
         </div>
       </div>
       <div>
@@ -196,42 +106,21 @@
           class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm p-6"
         >
           <div class="grid grid-cols-2">
-            <div class="flex flex-col lg:justify-center lg:items-center">
-              <a
-                class="flex justify-center"
-                href="https://www.credly.com/badges/af32de95-93a5-4bc1-95f6-87435691873a/public_url"
-                target="_blank"
-                ><img
-                  src="aws-academy-graduate-aws-academy-cloud-foundations.png"
-                  alt="aws-cloud-foundations"
-                  class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
-              /></a>
-              <p class="text-center text-white">AWS Cloud Foundations</p>
-            </div>
-            <div class="flex flex-col lg:justify-center lg:items-center">
-              <a
-                class="flex justify-center"
-                href="https://www.credly.com/badges/0cc70223-b7a4-4851-960d-b7e5599d33ad/public_url"
-                target="_blank"
-                ><img
-                  src="aws-academy-graduate-aws-academy-cloud-architecting.png"
-                  alt="aws-cloud-foundations"
-                  class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
-              /></a>
-              <p class="text-center text-white">AWS Cloud Architecting</p>
-            </div>
-            <div class="flex flex-col lg:justify-center lg:items-center">
-              <a
-                class="flex justify-center"
-                href="https://www.credly.com/badges/84c50a0e-75ba-44c5-b313-74309173583d/public_url"
-                target="_blank"
-                ><img
-                  src="aws-certified-cloud-practitioner.png"
-                  alt="aws-cloud-foundations"
-                  class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
-              /></a>
-              <p class="text-center text-white">AWS Cloud Architecting</p>
-            </div>
+            @for (certificate of certificates; track certificate.url) {
+              <div class="flex flex-col lg:justify-center lg:items-center">
+                <a
+                  class="flex justify-center"
+                  [href]="certificate.url"
+                  target="_blank"
+                  rel="noopener"
+                  ><img
+                    [src]="certificate.image"
+                    [alt]="certificate.name + ' badge'"
+                    class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
+                /></a>
+                <p class="text-center text-white">{{ certificate.name }}</p>
+              </div>
+            }
           </div>
         </div>
       </div>
