@@ -15,7 +15,7 @@ export interface Certificate {
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Build with',
-    items: ['TypeScript', 'JavaScript', 'Angular', 'React', 'Tailwind', 'HTML', 'CSS'],
+    items: ['TypeScript', 'JavaScript', 'Angular', 'React', 'React Native', 'Expo', 'Supabase', 'Tailwind', 'HTML', 'CSS'],
   },
   {
     title: 'Also know',
@@ -25,6 +25,7 @@ export const skillGroups: SkillGroup[] = [
     title: 'Background',
     list: true,
     items: [
+      'Software Developer at Peasy Gig Oy',
       'BBA in Business Information Technology, Jamk',
       'Cloud development intern at Skillwell Oy',
       'AWS Certified Cloud Practitioner',
