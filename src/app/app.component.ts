@@ -9,7 +9,6 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
   selector: 'app-root',
   imports: [RouterOutlet, NavigationComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
   animations: [
     trigger('routeAnimations', [
 

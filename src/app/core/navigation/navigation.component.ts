@@ -8,8 +8,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-navigation',
   imports: [MatButtonModule, MatIconModule, MatMenuModule, MatRippleModule, RouterLink, RouterLinkActive],
-  templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css'
+  templateUrl: './navigation.component.html'
 })
 export class NavigationComponent {
 
