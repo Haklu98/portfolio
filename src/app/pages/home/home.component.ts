@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ageOn } from './age';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  readonly age = ageOn(new Date());
 
   ngOnInit(): void {
       this.getGreeting();

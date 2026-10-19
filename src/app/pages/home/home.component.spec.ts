@@ -40,6 +40,11 @@ describe('HomeComponent', () => {
     expect(greetingAt(21)).toBe('Good Evening, fellow traveller!');
   });
 
+  it('should show the current age in the introduction', () => {
+    fixture.detectChanges();
+    expect(fixture.nativeElement.textContent).toContain(`I'm a ${component.age}-year-old`);
+  });
+
   it('should render the greeting in the heading', () => {
     fixture.detectChanges();
     const heading: HTMLElement = fixture.nativeElement.querySelector('h1');
