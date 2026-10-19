@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ElementRef, computed, inject, input, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../../core/i18n/language.service';
 import { ProjectsService } from '../../service/projects.service';
 import { ProjectImage } from '../../service/projects/projects-template';
 
@@ -12,6 +13,7 @@ import { ProjectImage } from '../../service/projects/projects-template';
 })
 export class ProjectComponent {
   private readonly projects = inject(ProjectsService);
+  readonly t = inject(LanguageService).content;
 
   /** Bound from the :slug route parameter (withComponentInputBinding). */
   readonly slug = input.required<string>();

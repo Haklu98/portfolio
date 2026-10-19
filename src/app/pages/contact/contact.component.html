@@ -1,7 +1,7 @@
 <section class="page pt-14 pb-24 max-md:text-center md:pt-20">
-  <h1 class="max-w-[16em] text-[2.5rem] leading-tight font-semibold max-md:mx-auto md:text-5xl">Got a project or a role in mind?</h1>
+  <h1 class="max-w-[16em] text-[2.5rem] leading-tight font-semibold max-md:mx-auto md:text-5xl">{{ t().contact.title }}</h1>
   <p class="mt-4 max-w-[36em] text-lg text-dim max-md:mx-auto">
-    Here you can find my contact information and socials. Email is the quickest way to reach me.
+    {{ t().contact.intro }}
   </p>
 
   <a [href]="'mailto:' + email" class="mt-8 inline-block text-2xl font-medium break-all md:text-3xl">{{ email }}</a>
@@ -12,16 +12,16 @@
       <dd class="mt-1 text-lg font-medium">azlarieth</dd>
     </div>
     <div>
-      <dt class="text-sm text-dim">Business ID / Y-tunnus</dt>
+      <dt class="text-sm text-dim">{{ t().contact.businessId }}</dt>
       <dd class="mt-1 text-lg font-medium">3496886-1</dd>
     </div>
     <div>
-      <dt class="text-sm text-dim">Location</dt>
-      <dd class="mt-1 text-lg font-medium">Seinäjoki, Finland</dd>
+      <dt class="text-sm text-dim">{{ t().contact.location }}</dt>
+      <dd class="mt-1 text-lg font-medium">{{ t().contact.locationValue }}</dd>
     </div>
   </dl>
 
-  <ul class="mt-12 flex flex-wrap gap-3 max-md:justify-center" aria-label="Social profiles">
+  <ul class="mt-12 flex flex-wrap gap-3 max-md:justify-center" [attr.aria-label]="t().contact.socials">
     @for (link of links; track link.url) {
       <li>
         <a

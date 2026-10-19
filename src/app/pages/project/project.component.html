@@ -2,7 +2,7 @@
 <article class="page pt-10 pb-24 max-md:text-center">
   <a routerLink="/code" class="inline-flex min-h-11 items-center gap-2 text-dim no-underline hover:text-brand">
     <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
-    All projects
+    {{ t().project.allProjects }}
   </a>
 
   <header class="mt-6 flex flex-wrap items-center justify-between gap-6 border-b border-rule pb-8 max-md:flex-col max-md:justify-center">
@@ -14,7 +14,7 @@
       </div>
     </div>
     @if (p.liveUrl) {
-      <a [href]="p.liveUrl" target="_blank" rel="noopener" class="btn btn-primary">Visit {{ p.liveLabel }}</a>
+      <a [href]="p.liveUrl" target="_blank" rel="noopener" class="btn btn-primary">{{ t().project.visit(p.liveLabel ?? '') }}</a>
     }
   </header>
 
@@ -33,18 +33,18 @@
     <aside class="flex flex-[1_1_18rem] flex-col gap-8 self-start rounded-[14px] border border-rule bg-panel p-6">
       <dl class="grid gap-5">
         <div>
-          <dt class="text-sm text-dim">Status</dt>
+          <dt class="text-sm text-dim">{{ t().project.status }}</dt>
           <dd class="mt-1 flex items-center gap-2 font-medium max-md:justify-center">
             <span class="h-3 w-[1.125rem] rounded-[3px]" [class.bar-done]="p.status === 'Completed'" [class.bar-wip]="p.status !== 'Completed'"></span>
-            {{ p.status }}
+            {{ t().status[p.status] }}
           </dd>
         </div>
         <div>
-          <dt class="text-sm text-dim">Time spent</dt>
-          <dd class="mt-1 font-medium">About {{ p.hours }} hours</dd>
+          <dt class="text-sm text-dim">{{ t().project.timeSpent }}</dt>
+          <dd class="mt-1 font-medium">{{ t().project.aboutHours(p.hours) }}</dd>
         </div>
         <div>
-          <dt class="text-sm text-dim">Roles</dt>
+          <dt class="text-sm text-dim">{{ t().project.roles }}</dt>
           <dd class="mt-1 font-medium">
             <ul>
               @for (role of p.roles; track $index) {
@@ -56,7 +56,7 @@
       </dl>
 
       <div>
-        <h2 class="mb-3 text-sm text-dim">Technologies</h2>
+        <h2 class="mb-3 text-sm text-dim">{{ t().project.technologies }}</h2>
         <ul class="grid grid-cols-2 gap-3 max-md:flex max-md:flex-wrap max-md:justify-center max-md:gap-x-6">
           @for (tech of p.technologies; track tech.name) {
             <li class="flex items-center gap-2.5">
@@ -71,14 +71,14 @@
 
   @if (p.images?.length) {
     <section class="mt-16" aria-labelledby="screenshots-heading">
-      <h2 id="screenshots-heading" class="mb-6 text-2xl font-semibold">Screenshots</h2>
+      <h2 id="screenshots-heading" class="mb-6 text-2xl font-semibold">{{ t().project.screenshots }}</h2>
       <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         @for (image of p.images; track image.src) {
           <li>
             <button
               type="button"
               (click)="openImage(image)"
-              [attr.aria-label]="'Open image: ' + image.alt"
+              [attr.aria-label]="t().project.openImage(image.alt)"
               class="group block w-full overflow-hidden rounded-xl border border-rule bg-white text-left hover:border-brand"
             >
               <img [src]="image.thumb" [width]="image.width" [height]="image.height" loading="lazy" [alt]="image.alt" class="aspect-[16/9] w-full object-cover object-top transition-transform duration-200 group-hover:scale-[1.03]">
@@ -102,7 +102,7 @@
   @if (openedImage(); as image) {
     <div class="flex items-center justify-between gap-4 border-b border-rule py-2 pr-2 pl-5">
       <p class="font-medium">{{ image.alt }}</p>
-      <button type="button" (click)="closeImage()" aria-label="Close image" class="grid size-11 place-items-center rounded-lg hover:bg-panel hover:text-brand">
+      <button type="button" (click)="closeImage()" [attr.aria-label]="t().project.closeImage" class="grid size-11 place-items-center rounded-lg hover:bg-panel hover:text-brand">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
       </button>
     </div>

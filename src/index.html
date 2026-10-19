@@ -14,6 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
   <!-- Apply the saved light theme before the app starts, so the page does not flash dark first (see ThemeService) -->
   <script>try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('meta[name="theme-color"]').setAttribute('content','#F7EFE4')}}catch(e){}</script>
+  <!-- Pick the language before the app starts: the saved choice, else Finnish for Finnish browsers, else English (see LanguageService) -->
+  <script>(function(){var l;try{l=localStorage.getItem('lang')}catch(e){}if(l!=='en'&&l!=='fi'){l=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().indexOf('fi')===0?'fi':'en'}document.documentElement.lang=l})();</script>
 </head>
 <body>
   <app-root></app-root>

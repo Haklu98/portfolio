@@ -6,30 +6,24 @@
     width="640"
     height="715"
     fetchpriority="high"
-    alt="Aleksi Hakala smiling on a city street"
+    [alt]="t().home.photoAlt"
     class="photo-ring size-48 shrink-0 rounded-full object-cover object-[50%_25%] md:size-60"
   >
 
   <div class="min-w-0 flex-[999_1_32rem]">
-    <p class="greeting text-lg text-dim">{{ greeting }}</p>
+    <p class="greeting text-lg text-dim">{{ greeting() }}</p>
     <span class="signature signature-glow mt-1 aspect-[3/1] w-full max-w-[27.5rem] max-md:mx-auto" aria-hidden="true"></span>
     <h1 class="mt-2 text-[2.75rem] leading-[1.05] font-semibold tracking-[0.01em] md:text-[3.5rem]">Aleksi Hakala</h1>
-    <p class="mt-1.5 text-xl font-medium text-dim">Software Developer based in Seinäjoki</p>
+    <p class="mt-1.5 text-xl font-medium text-dim">{{ t().home.role }}</p>
 
     <div class="mt-6 flex max-w-[36em] flex-col gap-4 text-lg max-md:mx-auto">
-      <p>
-        I'm a {{ age }} years young, living in Seinäjoki.
-        I work as a Software Developer at Peasy Gig Oy, and I hold a Bachelor of Business Information Technology from Jamk.
-      </p>
-      <p class="text-dim">
-        Before software, I gained experience in photography, videography, event planning and social media marketing.
-        For personal hobbies I actively go to the gym and indulge in varying amounts of the Dungeons &amp; Dragons tabletop role-playing game.
-      </p>
+      <p>{{ t().home.intro(age) }}</p>
+      <p class="text-dim">{{ t().home.background }}</p>
     </div>
 
     <div class="mt-8 flex flex-wrap gap-3 max-md:justify-center">
-      <a routerLink="/code" class="btn btn-primary">See my projects</a>
-      <a routerLink="/contact" class="btn btn-secondary">Contact me</a>
+      <a routerLink="/code" class="btn btn-primary">{{ t().home.seeProjects }}</a>
+      <a routerLink="/contact" class="btn btn-secondary">{{ t().home.contactMe }}</a>
     </div>
   </div>
 </section>

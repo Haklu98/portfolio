@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { LanguageService } from '../../core/i18n/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +8,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {
+  readonly t = inject(LanguageService).content;
 
   readonly email = 'aleksi.hakala.98@gmail.com';
 

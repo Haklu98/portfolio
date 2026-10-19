@@ -1,19 +1,23 @@
 import { TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
-import { Router, provideRouter, withComponentInputBinding } from '@angular/router';
+import { Router, TitleStrategy, provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
 import { routes } from './app.routes';
 import { HomeComponent } from './pages/home/home.component';
 import { CodeComponent } from './pages/code/code.component';
 import { ProjectComponent } from './pages/project/project.component';
+import { LocalizedTitleStrategy } from './core/i18n/title.strategy';
+import { LanguageService } from './core/i18n/language.service';
 
 describe('app routes', () => {
   let harness: RouterTestingHarness;
   let router: Router;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({ providers: [provideRouter(routes, withComponentInputBinding())] });
+    TestBed.configureTestingModule({
+      providers: [provideRouter(routes, withComponentInputBinding()), { provide: TitleStrategy, useClass: LocalizedTitleStrategy }]
+    });
     harness = await RouterTestingHarness.create();
     router = TestBed.inject(Router);
   });
@@ -52,16 +56,37 @@ describe('app routes', () => {
     expect(router.url).toBe('/');
   });
 
+  afterEach(() => {
+    TestBed.inject(LanguageService).set('en');
+    TestBed.tick();
+  });
+
   it('should set a page title for every page', async () => {
     const title = TestBed.inject(Title);
 
     await harness.navigateByUrl('/', HomeComponent);
+    TestBed.tick();
     expect(title.getTitle()).toBe('Aleksi Hakala | Developer Portfolio');
 
     await harness.navigateByUrl('/code', CodeComponent);
+    TestBed.tick();
     expect(title.getTitle()).toBe('Work | Aleksi Hakala');
 
     await harness.navigateByUrl('/projects/elli', ProjectComponent);
+    TestBed.tick();
     expect(title.getTitle()).toBe('Elli-Ticorporate | Aleksi Hakala');
+  });
+
+  it('should translate the page title when the language changes', async () => {
+    const title = TestBed.inject(Title);
+
+    await harness.navigateByUrl('/projects/musicportfolio', ProjectComponent);
+    TestBed.inject(LanguageService).set('fi');
+    TestBed.tick();
+    expect(title.getTitle()).toBe('Musiikkiportfolio-sivusto | Aleksi Hakala');
+
+    await harness.navigateByUrl('/contact');
+    TestBed.tick();
+    expect(title.getTitle()).toBe('Yhteystiedot | Aleksi Hakala');
   });
 });

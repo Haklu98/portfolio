@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { NavigationComponent } from './navigation.component';
 import { ThemeService } from '../theme/theme.service';
+import { LanguageService } from '../i18n/language.service';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -29,6 +30,25 @@ describe('NavigationComponent', () => {
       .map(a => a.getAttribute('href'));
     expect(hrefs('header > div nav a')).toEqual(['/', '/code', '/contact']);
     expect(hrefs('#mobile-menu a')).toEqual(['/', '/code', '/contact']);
+  });
+
+  it('should switch the language from the EN/FI buttons', () => {
+    const language = TestBed.inject(LanguageService);
+    const fiButton: HTMLButtonElement = fixture.nativeElement.querySelector('button[lang="fi"]');
+    const enButton: HTMLButtonElement = fixture.nativeElement.querySelector('button[lang="en"]');
+    expect(enButton.getAttribute('aria-pressed')).toBe('true');
+
+    fiButton.click();
+    fixture.detectChanges();
+    expect(language.lang()).toBe('fi');
+    expect(fiButton.getAttribute('aria-pressed')).toBe('true');
+    expect(enButton.getAttribute('aria-pressed')).toBe('false');
+    const labels = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('header > div nav a')).map(a => a.textContent?.trim());
+    expect(labels).toEqual(['Etusivu', 'Työt', 'Yhteystiedot']);
+
+    enButton.click();
+    fixture.detectChanges();
+    expect(language.lang()).toBe('en');
   });
 
   describe('mobile menu', () => {
@@ -78,7 +98,7 @@ describe('NavigationComponent', () => {
 
   it('should toggle the theme and describe the next action for screen readers', () => {
     const theme = TestBed.inject(ThemeService);
-    const button: HTMLButtonElement = fixture.nativeElement.querySelector('header button');
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('button[aria-label^="Switch to"]');
     const startedDark = theme.theme() === 'dark';
     expect(button.getAttribute('aria-label')).toBe(startedDark ? 'Switch to light mode' : 'Switch to dark mode');
 

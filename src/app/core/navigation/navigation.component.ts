@@ -1,8 +1,10 @@
-import { Component, ChangeDetectionStrategy, HostListener, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, HostListener, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
 import { ThemeService } from '../theme/theme.service';
+import { LanguageService } from '../i18n/language.service';
+import { Lang } from '../i18n/content';
 
 interface NavLink {
   path: string;
@@ -37,15 +39,39 @@ interface NavLink {
     }
     .mobile-link:hover { color: var(--brand); }
     .mobile-link[aria-current='page'] { color: var(--brand); }
+
+    .lang-button {
+      min-width: 2.5rem;
+      min-height: 2.75rem;
+      padding: 0 0.375rem;
+      border-radius: 0.5rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--dim);
+    }
+    .lang-button:hover { color: var(--brand); background: var(--surface); }
+    .lang-button[aria-pressed='true'] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--brand); text-underline-offset: 6px; text-decoration-thickness: 2px; }
   `,
 })
 export class NavigationComponent {
   readonly theme = inject(ThemeService);
 
-  readonly links: NavLink[] = [
-    { path: '/', label: 'Home', exact: true },
-    { path: '/code', label: 'Work', exact: false },
-    { path: '/contact', label: 'Contact', exact: false },
+  readonly language = inject(LanguageService);
+  readonly t = this.language.content;
+
+  readonly links = computed<NavLink[]>(() => {
+    const nav = this.t().nav;
+    return [
+      { path: '/', label: nav.home, exact: true },
+      { path: '/code', label: nav.work, exact: false },
+      { path: '/contact', label: nav.contact, exact: false },
+    ];
+  });
+
+  /** Language options; each is labelled in its own language so it is recognisable whichever is active. */
+  readonly languages: { lang: Lang; code: string; name: string }[] = [
+    { lang: 'en', code: 'EN', name: 'English' },
+    { lang: 'fi', code: 'FI', name: 'Suomi' },
   ];
 
   /** Whether the mobile menu is open (the menu button only shows below the md breakpoint). */

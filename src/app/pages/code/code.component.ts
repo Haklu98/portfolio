@@ -1,10 +1,18 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../../core/i18n/language.service';
 import { ProjectsService } from '../../service/projects.service';
-import { certificates, skillGroups } from './code.data';
+import { alsoKnow, buildWith, certificates } from './code.data';
 
 /** Hours that fill a whole bar in the project timeline (the axis shows 0–400 h in five steps). */
 export const TIMELINE_MAX_HOURS = 500;
+
+export interface SkillGroup {
+  title: string;
+  items: string[];
+  /** Show the items one per line instead of as a comma-separated sentence */
+  list?: boolean;
+}
 
 @Component({
   selector: 'app-code',
@@ -13,19 +21,33 @@ export const TIMELINE_MAX_HOURS = 500;
   templateUrl: './code.component.html',
 })
 export class CodeComponent {
+  private readonly projects = inject(ProjectsService);
+  readonly t = inject(LanguageService).content;
+
   readonly axis = [0, 100, 200, 300, 400];
 
   /** Projects with their bar width; long bars carry their label inside, short ones next to the bar. */
-  readonly tracks = inject(ProjectsService).getAll().map(project => {
-    const width = Math.min(100, (project.hours / TIMELINE_MAX_HOURS) * 100);
-    return {
-      ...project,
-      width,
-      labelInside: width >= 40,
-      label: project.status === 'In Development' ? `~${project.hours} h so far` : `~${project.hours} h`,
-    };
+  readonly tracks = computed(() => {
+    const work = this.t().work;
+    return this.projects.getAll().map(project => {
+      const width = Math.min(100, (project.hours / TIMELINE_MAX_HOURS) * 100);
+      return {
+        ...project,
+        width,
+        labelInside: width >= 40,
+        label: project.status === 'In Development' ? work.hoursSoFar(project.hours) : work.hours(project.hours),
+      };
+    });
   });
 
-  readonly skillGroups = skillGroups;
+  readonly skillGroups = computed<SkillGroup[]>(() => {
+    const work = this.t().work;
+    return [
+      { title: work.buildWith, items: buildWith },
+      { title: work.alsoKnow, items: alsoKnow },
+      { title: work.backgroundTitle, items: work.background, list: true },
+    ];
+  });
+
   readonly certificates = certificates;
 }

@@ -1,8 +1,8 @@
 <footer class="border-t border-rule bg-panel">
   <div class="page flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-6 text-[0.9375rem] text-dim max-md:flex-col max-md:text-center">
-    <p>Copyright © {{ year }} Aleksi Hakala. All rights reserved.</p>
+    <p>{{ t().footer.copyright(year) }}</p>
     <p class="flex gap-5">
-      <a href="https://github.com/Haklu98/portfolio" target="_blank" rel="noopener">Source code</a>
+      <a href="https://github.com/Haklu98/portfolio" target="_blank" rel="noopener">{{ t().footer.sourceCode }}</a>
       <a href="https://www.hakalamusic.com/" target="_blank" rel="noopener">hakalamusic.com</a>
     </p>
   </div>

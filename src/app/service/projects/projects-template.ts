@@ -1,3 +1,5 @@
+import type { Localized } from '../../core/i18n/content';
+
 /** A technology shown with its icon, e.g. `{ name: 'Angular', icon: 'angularjs-plain' }`. */
 export interface Technology {
   name: string;
@@ -28,6 +30,7 @@ export interface ProjectSection {
 
 export type ProjectStatus = 'Completed' | 'In Development';
 
+/** A project as shown on the page, in one language (see ProjectsService). */
 export interface Project {
   /** URL segment: /projects/:slug */
   slug: string;
@@ -52,4 +55,17 @@ export interface Project {
   /** Link text after "Visit", e.g. "turvajatkat.fi" */
   liveLabel?: string;
   github?: string;
+}
+
+/**
+ * A project as written in projects-data.ts: every text is given in both languages,
+ * e.g. `summary: { en: '…', fi: '…' }`. Everything else is shared.
+ */
+export interface ProjectSource extends Omit<Project, 'name' | 'cardTitle' | 'summary' | 'roles' | 'sections' | 'images'> {
+  name: Localized<string>;
+  cardTitle: Localized<string>;
+  summary: Localized<string>;
+  roles: Localized<string[]>;
+  sections: Localized<ProjectSection[]>;
+  images?: (Omit<ProjectImage, 'alt'> & { alt: Localized<string> })[];
 }

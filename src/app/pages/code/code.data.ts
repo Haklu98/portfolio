@@ -1,10 +1,3 @@
-export interface SkillGroup {
-  title: string;
-  items: string[];
-  /** Show the items one per line instead of as a comma-separated sentence */
-  list?: boolean;
-}
-
 export interface Certificate {
   name: string;
   image: string;
@@ -12,26 +5,11 @@ export interface Certificate {
   url: string;
 }
 
-export const skillGroups: SkillGroup[] = [
-  {
-    title: 'Build with',
-    items: ['TypeScript', 'JavaScript', 'Angular', 'React', 'React Native', 'Expo', 'Supabase', 'Tailwind', 'HTML', 'CSS'],
-  },
-  {
-    title: 'Also know',
-    items: ['Python', 'AWS', 'Docker', 'Express', 'MongoDB', 'MySQL', 'Figma', 'GitHub', 'VS Code'],
-  },
-  {
-    title: 'Background',
-    list: true,
-    items: [
-      'Software Developer at Peasy Gig Oy',
-      'BBA in Business Information Technology, Jamk',
-      'Cloud development intern at Skillwell Oy',
-      'AWS Certified Cloud Practitioner',
-    ],
-  },
-];
+/** Tools I build with day to day (the same in both languages; the group titles and Background list are in the content files). */
+export const buildWith: string[] = ['TypeScript', 'JavaScript', 'Angular', 'React', 'React Native', 'Expo', 'Supabase', 'Tailwind', 'HTML', 'CSS'];
+
+/** Other tools I know. */
+export const alsoKnow: string[] = ['Python', 'AWS', 'Docker', 'Express', 'MongoDB', 'MySQL', 'Figma', 'GitHub', 'VS Code'];
 
 export const certificates: Certificate[] = [
   {
