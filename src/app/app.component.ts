@@ -1,101 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavigationComponent } from "./core/navigation/navigation.component";
-import { FooterComponent } from "./core/footer/footer.component";
-import { MatIconRegistry } from '@angular/material/icon';
-import { trigger, transition, style, animate, query, group } from '@angular/animations';
+import { NavigationComponent } from './core/navigation/navigation.component';
+import { FooterComponent } from './core/footer/footer.component';
 
+/** App shell: navigation, the routed page and the footer. Page changes cross-fade via the View Transitions API (see app.config.ts). */
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavigationComponent, FooterComponent],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  animations: [
-    trigger('routeAnimations', [
-
-      transition('HomePage => *', [
-        query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-        group([
-          query(':leave', [
-            animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateX(100px)' }))
-          ], { optional: true }),
-          query(':enter', [
-            style({ opacity: 0, transform: 'translateX(-100px)' }),
-            animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateX(0px)' }))
-          ], { optional: false })
-        ])]),
-        transition('CodePage => *', [
-          query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-          group([
-            query(':leave', [
-              animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateY(100px)' }))
-            ], { optional: true }),
-            query(':enter', [
-              style({ opacity: 0, transform: 'translateX(-100px)' }),
-              animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-            ], { optional: false })
-          ])]),
-          transition('MusicPage => *', [
-            query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-            group([
-              query(':leave', [
-                animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateY(-100px)' }))
-              ], { optional: true }),
-              query(':enter', [
-                style({ opacity: 0, transform: 'translateY(-100px)' }),
-                animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-              ], { optional: false })
-            ])]),
-            transition('AboutPage => *', [
-              query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-              group([
-                query(':leave', [
-                  animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateY(100px)' }))
-                ], { optional: true }),
-                query(':enter', [
-                  style({ opacity: 0, transform: 'translateX(-100px)' }),
-                  animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-                ], { optional: false })
-              ])]),
-              transition('ProjectPage => *', [
-                query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-                group([
-                  query(':leave', [
-                    animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateY(100px)' }))
-                  ], { optional: true }),
-                  query(':enter', [
-                    style({ opacity: 0, transform: 'translateY(-100px)' }),
-                    animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-                  ], { optional: false })
-                ])]),
-                transition('ContactPage => *', [
-                  query(':enter, :leave', style({ position: 'absolute', width: '100%' }), { optional: true }),
-                  group([
-                    query(':leave', [
-                      animate('600ms ease-in-out', style({ opacity: 0, transform: 'translateY(-100px)' }))
-                    ], { optional: true }),
-                    query(':enter', [
-                      style({ opacity: 0, transform: 'translateY(100px)' }),
-                      animate('600ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-                    ], { optional: false })
-                  ])]),
-    ])
-  ]
 })
-export class AppComponent implements OnInit {
-  title = 'AleksiHakalaPortfolio';
-
-  getRouteAnimation(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-  }
-
-  constructor(
-    private matIconReg: MatIconRegistry
-  ) {}
-
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.matIconReg.setDefaultFontSetClass('material-icons-round');
-  }
-}
+export class AppComponent {}

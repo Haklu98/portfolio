@@ -59,7 +59,7 @@ describe('app routes', () => {
     expect(title.getTitle()).toBe('Aleksi Hakala | Developer Portfolio');
 
     await harness.navigateByUrl('/code', CodeComponent);
-    expect(title.getTitle()).toBe('Code & Projects | Aleksi Hakala');
+    expect(title.getTitle()).toBe('Work | Aleksi Hakala');
 
     await harness.navigateByUrl('/projects/elli', ProjectComponent);
     expect(title.getTitle()).toBe('Elli-Ticorporate | Aleksi Hakala');

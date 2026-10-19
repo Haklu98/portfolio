@@ -6,16 +6,15 @@ My personal developer portfolio, showcasing my projects, skills and certificates
 
 - [Angular](https://angular.dev) 22 (standalone components, signals)
 - [Tailwind CSS](https://tailwindcss.com) 4
-- [Angular Material](https://material.angular.io) (menu, dialogs, icons)
+- Dark and light theme (dark uses the same palette as [hakalamusic.com](https://www.hakalamusic.com/)), Jost typeface
 - Hosted on [Netlify](https://www.netlify.com)
 
 ## Project structure
 
 ```
 src/app/
-├── core/        # Layout: navigation and footer
+├── core/        # Layout (navigation, footer) and the theme service
 ├── pages/       # Pages: home, code, contact, about and the project detail page
-├── shared/      # Reusable components (image dialog)
 └── service/     # Project data (projects-data.ts) and models
 public/          # Static assets (WebP images, SVG icons, Netlify _redirects)
 ```
