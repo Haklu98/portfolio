@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { CodeComponent } from './code.component';
+import { CodeComponent, TIMELINE_MAX_HOURS } from './code.component';
 
 describe('CodeComponent', () => {
   let component: CodeComponent;
@@ -31,10 +31,27 @@ describe('CodeComponent', () => {
     expect(hrefs).toContain('/projects/musicportfolio');
   });
 
+  it('should size each project bar by the hours spent', () => {
+    for (const track of component.tracks) {
+      expect(track.width).toBeCloseTo((track.hours / TIMELINE_MAX_HOURS) * 100);
+    }
+    const elli = component.tracks.find(t => t.slug === 'elli')!;
+    expect(elli.labelInside).toBeTrue();
+    expect(elli.label).toBe('~450 h');
+  });
+
+  it('should mark projects that are still in development', () => {
+    const music = component.tracks.find(t => t.slug === 'musicportfolio')!;
+    expect(music.label).toBe('~80 h so far');
+    expect(fixture.nativeElement.querySelectorAll('.bar-wip').length).toBe(2); // legend + bar
+  });
+
   it('should render every skill and certificate from the data', () => {
     const text: string = fixture.nativeElement.textContent;
-    for (const skill of [...component.primarySkills, ...component.utilitySkills]) {
-      expect(text).toContain(skill.name);
+    for (const group of component.skillGroups) {
+      for (const item of group.items) {
+        expect(text).toContain(item);
+      }
     }
     const badges = fixture.nativeElement.querySelectorAll('a[href^="https://www.credly.com"] img');
     expect(badges.length).toBe(component.certificates.length);

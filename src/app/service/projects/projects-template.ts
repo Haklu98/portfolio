@@ -33,9 +33,13 @@ export interface Project {
   slug: string;
   /** Title on the project page */
   name: string;
-  /** Short title under the thumbnail on the Code page */
+  /** Short title used in project lists */
   cardTitle: string;
+  /** One-line description shown in project lists and under the page title */
+  summary: string;
   thumbnail: string;
+  /** Background behind the thumbnail when the icon is transparent (e.g. a white icon needs a dark tile) */
+  thumbnailBackground?: string;
   status: ProjectStatus;
   /** Approximate hours spent */
   hours: number;

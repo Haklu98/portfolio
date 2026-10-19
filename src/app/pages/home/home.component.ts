@@ -1,9 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ageOn } from './age';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './home.component.html'
 })

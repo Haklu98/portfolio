@@ -1,137 +1,130 @@
-<div class="flex max-lg:flex-col lg:flex gap-10 p-2 bg-radial">
-  <div
-    class="text-white max-lg:flex-col max-lg:flex max-lg:gap-10 flex flex-col gap-10"
-  >
-    <div
-      class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm"
-    >
-      <article class="p-10 text-white">
-        <h1 class="text-6xl text-white">CODE</h1>
-        <br />
-        <p class="text-white">
-          <span class="font-semibold">I'm a recently graduated Bachelor of Business Information Technology</span> from Jamk University of Applied Sciences.
-        </p>
-        <p>
-          As of now I'm looking for software development related positions, where I can put my skills and knowledge into good use. I have a versatile set of skills and my studies focused on full-stack development.
-        </p>
-        <br />
-        <p class="text-white">
-          <span class="font-semibold">During my studies</span> I have built a
-          profound understanding of
-          <span class="text-orange-400 font-semibold">JavaScript</span>/<span
-            class="text-cyan-300 font-semibold"
-            >TypeScript</span
-          >
-          languages and also several different frameworks that implement said
-          languages. For example, this website was built using
-          <span class="text-red-500 font-semibold">Angular</span> and
-          <span class="text-blue-400 font-semibold">Tailwind</span>. These are
-          also complemented by my knowledge of basic software architecture and
-          databases, with a touch of cloud computing (AWS) and AI.
-        </p>
-        <br />
-        <p class="text-white">
-          <span class="font-semibold">As for my internship</span> I worked with Skillwell Oy
-          in the cloud development field, where I was part of a team that built a cloud-based business offer evaluator tool.
-          During this project I was able to familiarize myself with different Machine Learning models like Nova Pro and Claude 3 Sonnet.
-          My job was also to do the API-integration between hankintailmoitukset.fi and the evaluator tool.
-          With the help of this internship I was able to further solidify my knowledge of
-          <span class="text-green-400 font-semibold">Python</span> and
-          <span class="text-cyan-300 font-semibold">React</span>.
-        </p>
-      </article>
-    </div>
-    <div class="">
-      <div
-        class="border-t-[1px] border-[#4b912f31] lg:w-[15%] border-x-[1px] bg-[#68686813] text-center inset-shadow-black inset-shadow-sm"
-      >
-        <h2 class="text-3xl">Projects</h2>
-      </div>
+<section class="page pt-14 pb-16 md:pt-20">
+  <h1 class="text-[2.5rem] leading-tight font-semibold md:text-5xl">Work</h1>
+  <div class="mt-5 flex max-w-[40em] flex-col gap-4 text-lg">
+    <p>
+      I'm a recently graduated Bachelor of Business Information Technology from Jamk University of Applied Sciences,
+      looking for software development positions where I can put my skills to good use. My studies focused on full-stack development.
+    </p>
+    <p class="text-dim">
+      I know JavaScript and TypeScript well, along with several frameworks built on them. This website is built with Angular and Tailwind.
+      During my internship at Skillwell Oy I was part of a team that built a cloud-based business offer evaluator: I worked with
+      models like Nova Pro and Claude 3 Sonnet and built the API integration with hankintailmoitukset.fi, using Python and React.
+    </p>
+  </div>
+</section>
 
-      <div
-        class="flex flex-row flex-wrap gap-8 p-4 bg-[#68686813] border-[#4b912f31] border-[1px] inset-shadow-sm inset-shadow-black h-[16rem]"
-      >
-        @for (project of projects; track project.slug) {
-          <div class="flex flex-col w-20">
-            <a [routerLink]="['/projects', project.slug]"
-              class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
-            >
-              <img [src]="project.thumbnail" [alt]="project.name" width="160" height="160" class="h-20 w-20" />
-              <p class="text-center text-sm text-white">{{ project.cardTitle }}</p>
-            </a>
-          </div>
+<section class="page pb-20" aria-labelledby="projects-heading">
+  <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <h2 id="projects-heading" class="text-[2.375rem] leading-tight font-semibold">Projects</h2>
+      <p class="mt-1 text-dim">Each bar is the time I put into the project.</p>
+    </div>
+    <div class="flex gap-5 text-[0.9375rem]">
+      <span class="flex items-center gap-2"><span class="bar-done h-3 w-[1.125rem] rounded-[3px]"></span>Completed</span>
+      <span class="flex items-center gap-2"><span class="bar-wip h-3 w-[1.125rem] rounded-[3px]"></span>In development</span>
+    </div>
+  </div>
+
+  <div class="rounded-[14px] border border-rule bg-panel pt-2 pb-4">
+    <div class="flex px-6 py-3 text-[0.8125rem] text-dim max-md:hidden" aria-hidden="true">
+      <div class="w-[18.75rem] shrink-0">Project</div>
+      <div class="grid flex-1 grid-cols-5">
+        @for (hours of axis; track hours) {
+          <span>{{ hours }} h</span>
         }
       </div>
     </div>
+
+    <ul class="border-t border-rule">
+      @for (track of tracks; track track.slug; let last = $last) {
+        <li [class.border-b]="!last" class="border-rule">
+          <a
+            [routerLink]="['/projects', track.slug]"
+            class="group flex flex-wrap items-center gap-x-0 gap-y-3 px-6 py-5 text-ink no-underline hover:bg-surface hover:text-ink"
+          >
+            <div class="flex w-[18.75rem] shrink-0 items-center gap-3.5">
+              <img [src]="track.thumbnail" alt="" width="160" height="160" class="size-12 rounded-[10px]" [style.background]="track.thumbnailBackground">
+              <div class="min-w-0">
+                <h3 class="text-xl leading-snug font-semibold group-hover:text-brand">{{ track.cardTitle }}</h3>
+                <p class="text-sm text-dim">{{ track.technologies[0].name }}, {{ track.technologies[1].name }}</p>
+              </div>
+            </div>
+            <div class="flex h-11 min-w-0 flex-[1_1_25rem] items-center gap-3 rounded-lg bg-surface">
+              <div
+                class="h-full shrink-0 rounded-lg"
+                [class.bar-done]="track.status === 'Completed'"
+                [class.bar-wip]="track.status !== 'Completed'"
+                [style.width.%]="track.width"
+              >
+                @if (track.labelInside) {
+                  <span class="flex h-full items-center px-3.5 text-[0.9375rem] font-semibold text-on-brand">{{ track.label }}</span>
+                }
+              </div>
+              @if (!track.labelInside) {
+                <span class="text-[0.9375rem] font-semibold">{{ track.label }}</span>
+              }
+            </div>
+            <span class="sr-only">{{ track.status }}. {{ track.summary }}</span>
+          </a>
+        </li>
+      }
+    </ul>
   </div>
 
-  <div class="flex flex-col gap-2">
-    <div>
-      <h2 class="text-3xl text-white">Primary Skills</h2>
-      <div
-        class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm p-6"
-      >
-        <div class="flex flex-row gap-6 justify-center max-lg:flex-wrap text-white">
-          @for (skill of primarySkills; track skill.name) {
-            <div class="flex flex-col justify-center items-center">
-              <img [src]="'/icons/' + skill.icon + '.svg'" alt="" width="60" height="60" loading="lazy" class="size-15">
-              <p>{{ skill.name }}</p>
-              <p>{{ skill.level }}/10</p>
-            </div>
-          }
-        </div>
-      </div>
+  <a routerLink="/projects/elli" class="group mt-8 flex flex-wrap overflow-hidden rounded-[14px] border border-rule text-ink no-underline hover:text-ink">
+    <img
+      src="/screenshots/elli/elli-yearlycal.webp"
+      width="1680"
+      height="880"
+      loading="lazy"
+      alt="Elli's roadmap-style yearly calendar"
+      class="h-80 w-full min-w-0 flex-[999_1_35rem] bg-white object-cover object-[left_top]"
+    >
+    <div class="flex-[1_1_18.75rem] bg-surface p-8">
+      <p class="text-sm font-semibold text-brand">From Elli</p>
+      <h3 class="mt-1.5 text-2xl leading-snug font-semibold group-hover:text-brand">Roadmap-style yearly calendar</h3>
+      <p class="mt-3">
+        A responsive yearly view with filtering by project type and time, built in Angular and Tailwind
+        during two-week Scrum sprints with Elisa.
+      </p>
     </div>
-    <div>
-      <h2 class="text-3xl text-white">Utility Skills</h2>
-      <div
-        class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm p-6 flex flex-col gap-6"
-      >
-        <div
-          class="grid lg:grid-cols-5 lg:gap-4 max-lg:gap-2 lg:justify-between max-lg:justify-center lg:flex-wrap max-lg:grid max-lg:grid-cols-3"
-        >
-          @for (skill of utilitySkills; track skill.name) {
-            <div class="flex flex-col justify-center items-center">
-              <img
-                [src]="'/icons/' + skill.icon + '.svg'"
-                alt=""
-                width="60"
-                height="60"
-                loading="lazy"
-                class="size-15 drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-              />
-              <p class="text-white">{{ skill.name }}</p>
-            </div>
-          }
-        </div>
-      </div>
-      <div>
-        <h2 class="text-3xl text-white">Certificates</h2>
-        <div
-          class="bg-[#6868681f] border-[#fcfcfc57] border-[1px] inset-shadow-sm inset-shadow-black rounded-sm p-6"
-        >
-          <div class="grid grid-cols-2">
-            @for (certificate of certificates; track certificate.url) {
-              <div class="flex flex-col lg:justify-center lg:items-center">
-                <a
-                  class="flex justify-center items-start"
-                  [href]="certificate.url"
-                  target="_blank"
-                  rel="noopener"
-                  ><img
-                    [src]="certificate.image"
-                    [alt]="certificate.name + ' badge'"
-                    width="300"
-                    height="300"
-                    loading="lazy"
-                    class="w-3/5 h-auto object-contain hover:scale-[1.05] duration-150 hover:cursor-pointer"
-                /></a>
-                <p class="text-center text-white">{{ certificate.name }}</p>
-              </div>
+  </a>
+</section>
+
+<section class="page pb-20" aria-label="Skills">
+  <div class="grid gap-6 md:grid-cols-3">
+    @for (group of skillGroups; track group.title; let i = $index) {
+      <div class="border-t-2 pt-5" [class.border-brand]="i === 0" [class.border-rule-strong]="i !== 0">
+        <h2 class="mb-2.5 text-[1.375rem] font-semibold">{{ group.title }}</h2>
+        @if (group.list) {
+          <ul class="flex flex-col gap-1.5 leading-normal">
+            @for (item of group.items; track item) {
+              <li>{{ item }}</li>
             }
-          </div>
-        </div>
+          </ul>
+        } @else {
+          <p class="leading-[1.7]">{{ group.items.join(', ') }}</p>
+        }
       </div>
-    </div>
+    }
   </div>
-</div>
+</section>
+
+<section class="page pb-24" aria-labelledby="certificates-heading">
+  <h2 id="certificates-heading" class="mb-6 text-[1.375rem] font-semibold">Certificates</h2>
+  <ul class="flex flex-wrap gap-4">
+    @for (certificate of certificates; track certificate.url) {
+      <li>
+        <a
+          [href]="certificate.url"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-4 rounded-xl border border-rule bg-panel py-3 pr-5 pl-3 text-ink no-underline hover:border-brand hover:text-ink"
+        >
+          <img [src]="certificate.image" [alt]="certificate.name + ' badge'" width="300" height="300" loading="lazy" class="size-16 object-contain">
+          <span class="font-medium">{{ certificate.name }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</section>

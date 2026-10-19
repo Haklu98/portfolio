@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
 import { NavigationComponent } from './navigation.component';
+import { ThemeService } from '../theme/theme.service';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -24,13 +25,22 @@ describe('NavigationComponent', () => {
   });
 
   it('should render real links for the main pages', () => {
-    const hrefs = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('nav > div > a'))
+    const hrefs = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('nav a'))
       .map(a => a.getAttribute('href'));
     expect(hrefs).toEqual(['/', '/code', '/contact']);
   });
 
-  it('should label the mobile menu button for screen readers', () => {
-    const button: HTMLButtonElement = fixture.nativeElement.querySelector('button[mat-icon-button]');
-    expect(button.getAttribute('aria-label')).toBe('Open navigation menu');
+  it('should toggle the theme and describe the next action for screen readers', () => {
+    const theme = TestBed.inject(ThemeService);
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('header button');
+    const startedDark = theme.theme() === 'dark';
+    expect(button.getAttribute('aria-label')).toBe(startedDark ? 'Switch to light mode' : 'Switch to dark mode');
+
+    button.click();
+    fixture.detectChanges();
+    expect(theme.theme()).toBe(startedDark ? 'light' : 'dark');
+    expect(button.getAttribute('aria-label')).toBe(startedDark ? 'Switch to dark mode' : 'Switch to light mode');
+
+    button.click(); // leave the document as it was
   });
 });

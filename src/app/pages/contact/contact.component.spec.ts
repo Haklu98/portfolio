@@ -29,7 +29,7 @@ describe('ContactComponent', () => {
 
   it('should open external links safely in a new tab', () => {
     const external = fixture.nativeElement.querySelectorAll('a[target="_blank"]') as NodeListOf<HTMLAnchorElement>;
-    expect(external.length).toBe(3);
+    expect(external.length).toBe(component.links.length);
     external.forEach(a => expect(a.rel).toContain('noopener'));
   });
 });

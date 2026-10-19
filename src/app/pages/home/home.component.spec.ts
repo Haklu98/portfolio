@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { provideRouter } from '@angular/router';
+
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
@@ -8,7 +10,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [HomeComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
@@ -45,9 +48,16 @@ describe('HomeComponent', () => {
     expect(fixture.nativeElement.textContent).toContain(`I'm a ${component.age}-year-old`);
   });
 
-  it('should render the greeting in the heading', () => {
+  it('should render the greeting above the name', () => {
     fixture.detectChanges();
-    const heading: HTMLElement = fixture.nativeElement.querySelector('h1');
-    expect(heading.textContent?.trim()).toBe(component.greeting);
+    const greeting: HTMLElement = fixture.nativeElement.querySelector('.greeting');
+    expect(greeting.textContent?.trim()).toBe(component.greeting);
+    expect(fixture.nativeElement.querySelector('h1').textContent).toContain('Aleksi Hakala');
+  });
+
+  it('should link to the projects and contact pages', () => {
+    fixture.detectChanges();
+    const hrefs = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('a')).map(a => a.getAttribute('href'));
+    expect(hrefs).toEqual(['/code', '/contact']);
   });
 });

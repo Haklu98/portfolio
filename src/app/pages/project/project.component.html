@@ -1,91 +1,111 @@
 @if (project(); as p) {
-<div class="flex flex-col p-4">
-  <div
-    class="flex flex-row justify-between items-center bg-gradient-to-b from-[#0d688370] to-[#2b2b2b7e] border-[#ffffff83] border-[1px]"
-  >
-    <h2 class="text-4xl">{{ p.name }}</h2>
-    <a
-      routerLink="/code"
-      aria-label="Back to projects"
-      class="h-[4rem] w-[4rem] flex justify-center items-center hover:bg-gradient-to-b from-[#ff0d0d70] to-[#79000080]"
-    >
-      <mat-icon
-        class="!text-slate-300 !text-5xl !size-[3rem] transition duration-200"
-        >close</mat-icon
-      >
-    </a>
-  </div>
+<article class="page pt-10 pb-24">
+  <a routerLink="/code" class="inline-flex min-h-11 items-center gap-2 text-dim no-underline hover:text-brand">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+    All projects
+  </a>
 
-  <div
-    class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-b-lg bg-[#2b2b2b7e] inset-shadow-black inset-shadow-sm flex lg:flex-row max-lg:flex-col-reverse max-lg:gap-4 justify-between"
-  >
-    <div class="lg:w-[50%] max-lg:text-center items-center">
-      @for (section of p.sections; track section.heading; let lastSection = $last) {
-        <h3 class="text-2xl underline">{{ section.heading }}</h3>
-        @for (paragraph of section.paragraphs; track $index; let lastParagraph = $last) {
-          <p [innerHTML]="paragraph"></p>
-          @if (!(lastSection && lastParagraph)) {
-            <br />
+  <header class="mt-6 flex flex-wrap items-center justify-between gap-6 border-b border-rule pb-8">
+    <div class="flex min-w-0 items-center gap-5">
+      <img [src]="p.thumbnail" alt="" width="160" height="160" class="size-16 shrink-0 rounded-xl" [style.background]="p.thumbnailBackground">
+      <div class="min-w-0">
+        <h1 class="text-[2.25rem] leading-tight font-semibold md:text-5xl">{{ p.name }}</h1>
+        <p class="mt-1 text-lg text-dim">{{ p.summary }}</p>
+      </div>
+    </div>
+    @if (p.liveUrl) {
+      <a [href]="p.liveUrl" target="_blank" rel="noopener" class="btn btn-primary">Visit {{ p.liveLabel }}</a>
+    }
+  </header>
+
+  <div class="mt-10 flex flex-wrap gap-x-16 gap-y-12">
+    <div class="min-w-0 max-w-[42em] flex-[999_1_35rem]">
+      @for (section of p.sections; track section.heading) {
+        <section class="mb-10 last:mb-0">
+          <h2 class="mb-3 text-2xl font-semibold">{{ section.heading }}</h2>
+          @for (paragraph of section.paragraphs; track $index) {
+            <p class="mb-4 text-lg leading-relaxed last:mb-0" [innerHTML]="paragraph"></p>
           }
-        }
+        </section>
       }
     </div>
 
-    @if (p.images?.length) {
-      <div class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4 items-center">
-        <h3 class="text-2xl underline text-center">Images</h3>
-        @for (image of p.images; track image.src) {
-          <button type="button" class="hover:scale-[1.1] duration-200" (click)="openImage(image)" [attr.aria-label]="'Open image: ' + image.alt">
-            <img class="w-[10rem]" [src]="image.thumb" [width]="image.width" [height]="image.height" loading="lazy" [alt]="image.alt">
-          </button>
-        }
-      </div>
-    }
-
-    @if (p.liveUrl) {
-      <div class="border-[#ffffff83] border-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4 items-center self-start">
-        <h3 class="text-2xl underline text-center">Live Website</h3>
-        <a [href]="p.liveUrl" target="_blank" rel="noopener"
-           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 hover:scale-105">
-          Visit {{ p.liveLabel }}
-        </a>
-      </div>
-    }
-
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-row gap-10 lg:justify-between max-lg:justify-center">
-        <div class="flex">
-          <div
-            class="border-[#ffffff83] border-x-[1px] border-b-[1px] p-4 rounded-md bg-[#2b2b2b2c] inset-shadow-black inset-shadow-xs flex flex-col gap-4"
-          >
-            <div class="text-center">
-              <h3 class="text-2xl underline">Project Status</h3>
-              <p>{{ p.status }}</p>
-              <p>Time spent: ~{{ p.hours }} hours</p>
-            </div>
-            <div>
-              <h3 class="text-2xl underline text-center">Roles</h3>
-              <div class="flex flex-col justify-end gap-3 text-center">
-                @for (role of p.roles; track $index) {
-                  <p>{{ role }}</p>
-                }
-              </div>
-            </div>
-            <div>
-              <h3 class="text-2xl underline text-center">Technologies Used</h3>
-              <div class="flex flex-row flex-wrap justify-end gap-4">
-                @for (tech of p.technologies; track tech.name) {
-                  <div class="flex flex-col justify-center items-center">
-                    <img [src]="'/icons/' + tech.icon + '.svg'" alt="" width="60" height="60" loading="lazy" class="size-15">
-                    <p>{{ tech.name }}</p>
-                  </div>
-                }
-              </div>
-            </div>
-          </div>
+    <aside class="flex flex-[1_1_18rem] flex-col gap-8 self-start rounded-[14px] border border-rule bg-panel p-6">
+      <dl class="grid gap-5">
+        <div>
+          <dt class="text-sm text-dim">Status</dt>
+          <dd class="mt-1 flex items-center gap-2 font-medium">
+            <span class="h-3 w-[1.125rem] rounded-[3px]" [class.bar-done]="p.status === 'Completed'" [class.bar-wip]="p.status !== 'Completed'"></span>
+            {{ p.status }}
+          </dd>
         </div>
+        <div>
+          <dt class="text-sm text-dim">Time spent</dt>
+          <dd class="mt-1 font-medium">About {{ p.hours }} hours</dd>
+        </div>
+        <div>
+          <dt class="text-sm text-dim">Roles</dt>
+          <dd class="mt-1 font-medium">
+            <ul>
+              @for (role of p.roles; track $index) {
+                <li>{{ role }}</li>
+              }
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+      <div>
+        <h2 class="mb-3 text-sm text-dim">Technologies</h2>
+        <ul class="grid grid-cols-2 gap-3">
+          @for (tech of p.technologies; track tech.name) {
+            <li class="flex items-center gap-2.5">
+              <img [src]="'/icons/' + tech.icon + '.svg'" alt="" width="60" height="60" loading="lazy" class="size-8" [class.icon-on-dark]="darkIcons.has(tech.icon)">
+              <span class="font-medium">{{ tech.name }}</span>
+            </li>
+          }
+        </ul>
       </div>
-    </div>
+    </aside>
   </div>
-</div>
+
+  @if (p.images?.length) {
+    <section class="mt-16" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading" class="mb-6 text-2xl font-semibold">Screenshots</h2>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        @for (image of p.images; track image.src) {
+          <li>
+            <button
+              type="button"
+              (click)="openImage(image)"
+              [attr.aria-label]="'Open image: ' + image.alt"
+              class="group block w-full overflow-hidden rounded-xl border border-rule bg-white text-left hover:border-brand"
+            >
+              <img [src]="image.thumb" [width]="image.width" [height]="image.height" loading="lazy" [alt]="image.alt" class="aspect-[16/9] w-full object-cover object-top transition-transform duration-200 group-hover:scale-[1.03]">
+            </button>
+            <p class="mt-2 text-[0.9375rem] text-dim">{{ image.alt }}</p>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+</article>
 }
+
+<dialog
+  #imageDialog
+  (click)="onDialogClick($event)"
+  (close)="openedImage.set(null)"
+  [attr.aria-label]="openedImage()?.alt"
+  class="m-auto max-h-[90vh] max-w-[min(90vw,1680px)] overflow-hidden rounded-[14px] border border-rule bg-surface p-0 text-ink backdrop:bg-black/70"
+>
+  @if (openedImage(); as image) {
+    <div class="flex items-center justify-between gap-4 border-b border-rule py-2 pr-2 pl-5">
+      <p class="font-medium">{{ image.alt }}</p>
+      <button type="button" (click)="closeImage()" aria-label="Close image" class="grid size-11 place-items-center rounded-lg hover:bg-panel hover:text-brand">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </div>
+    <img [src]="image.src" [width]="image.width" [height]="image.height" [alt]="image.alt" class="block h-auto max-h-[calc(90vh-3.75rem)] w-auto max-w-full bg-white object-contain">
+  }
+</dialog>

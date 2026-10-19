@@ -10,6 +10,7 @@ export const projects: Project[] = [
     slug: 'elli',
     name: 'Elli-Ticorporate',
     cardTitle: 'Elli-Ticorporate',
+    summary: 'Collaboration tool for Jamk and Elisa Oyj, built in Angular and Tailwind.',
     thumbnail: '/ElliShortcut.webp',
     status: 'Completed',
     hours: 450,
@@ -32,8 +33,8 @@ export const projects: Project[] = [
           `<span class="font-semibold">My job</span> was mainly on the frontend side of the project. I spent copious
           amounts of time on the different <span class="font-semibold">calendar and task management features</span>,
           as well as the <span class="font-semibold">filtering and confirmation modules</span>.
-          Working with <span class="font-semibold text-red-500">Angular</span> and
-          <span class="font-semibold text-blue-400">Tailwind</span>, I was able to create a visually appealing and
+          Working with <span class="font-semibold">Angular</span> and
+          <span class="font-semibold">Tailwind</span>, I was able to create a visually appealing and
           user-friendly interface that followed the UI/UX planning of the project. I was also responsible for the
           <span class="font-semibold">project manager</span> role, which involved overseeing the project with the
           help of our Scrum Master.`,
@@ -73,7 +74,9 @@ export const projects: Project[] = [
     slug: 'turvajatkat',
     name: 'Turvajätkät',
     cardTitle: 'Turvajätkät',
+    summary: 'WordPress website for a security company, live at turvajatkat.fi.',
     thumbnail: '/turvajatkatShortcut.webp',
+    thumbnailBackground: '#2B211C',
     status: 'Completed',
     hours: 50,
     roles: ['Full-Stack Developer', 'UI/UX Designer'],
@@ -116,7 +119,9 @@ export const projects: Project[] = [
     slug: 'musicportfolio',
     name: 'Music Portfolio Website',
     cardTitle: 'Music portfolio',
+    summary: 'My music site hakalamusic.com, built with React and hosted on AWS.',
     thumbnail: '/MusicShortcut.webp',
+    thumbnailBackground: '#FFFFFF',
     status: 'In Development',
     hours: 80,
     roles: ['Full-Stack Developer', 'UI/UX Designer', 'Content Creator'],

@@ -1,61 +1,41 @@
-<div class="flex flex-col justify-center items-center lg:h-[80vh]">
-  <div class="flex flex-col justify-center gap-20 items-center p-4">
-    <div class="flex flex-col justify-center items-center gap-6 text-white">
-      <h1 class="text-6xl underline text-center text-white">CONTACT</h1>
-      <div class="flex flex-col text-center gap-4">
-        <p class="text-2xl">
-          Here you can find my contact information and socials!
-        </p>
-        <p class="text-xl text-white">
-          <span class="font-semibold">Email: </span>
-          <a
-            class="email hover:text-blue-600 hover:underline duration-150 text-white"
-            [href]="'mailto:' + email"
-            >{{ email }}</a
-          >
-        </p>
-        <p class="text-xl">
-          <span class="font-semibold">Discord: </span> azlarieth
-        </p>
-        <p class="text-xl"><span class="font-semibold">Business ID/Y-tunnus: </span> 3496886-1</p>
-        <p class="text-xl">
-          <span class="font-semibold">Location: </span> Jyväskylä, Finland
-        </p>
-      </div>
-    </div>
+<section class="page pt-14 pb-24 md:pt-20">
+  <h1 class="max-w-[16em] text-[2.5rem] leading-tight font-semibold md:text-5xl">Got a project or a role in mind?</h1>
+  <p class="mt-4 max-w-[36em] text-lg text-dim">
+    Here you can find my contact information and socials. Email is the quickest way to reach me.
+  </p>
 
-    <div class="flex flex-row flex-wrap gap-6">
-      <a href="https://www.instagram.com/lalexeii" target="_blank" rel="noopener"
-        ><img
-          src="assets/images/insta.webp"
-          width="112"
-          height="112"
-          loading="lazy"
-          alt="Instagram"
-          class="h-14 w-auto hover:scale-[1.05] hover:drop-shadow-[0_4px_4px_rgba(100,0,100,2)] duration-[200ms] cursor-pointer"
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/aleksi-hakala-a061121a7/"
-        target="_blank"
-        rel="noopener"
-      >
-        <img
-          src="assets/images/linkedin.webp"
-          width="112"
-          height="112"
-          loading="lazy"
-          alt="LinkedIn"
-          class="h-14 w-auto hover:scale-[1.05] hover:drop-shadow-[0_4px_4px_rgba(100,0,100,2)] duration-[200ms] cursor-pointer"
-      /></a>
-      <a href="https://github.com/Haklu98" target="_blank" rel="noopener"
-        ><img
-          src="assets/images/github.webp"
-          width="112"
-          height="112"
-          loading="lazy"
-          alt="GitHub"
-          class="h-14 w-auto hover:scale-[1.05] hover:drop-shadow-[0_4px_4px_rgba(100,0,100,2)] duration-[200ms] cursor-pointer"
-      /></a>
+  <a [href]="'mailto:' + email" class="mt-8 inline-block text-2xl font-medium break-all md:text-3xl">{{ email }}</a>
+
+  <dl class="mt-12 grid gap-6 border-t border-rule pt-8 sm:grid-cols-3">
+    <div>
+      <dt class="text-sm text-dim">Discord</dt>
+      <dd class="mt-1 text-lg font-medium">azlarieth</dd>
     </div>
-  </div>
-</div>
+    <div>
+      <dt class="text-sm text-dim">Business ID / Y-tunnus</dt>
+      <dd class="mt-1 text-lg font-medium">3496886-1</dd>
+    </div>
+    <div>
+      <dt class="text-sm text-dim">Location</dt>
+      <dd class="mt-1 text-lg font-medium">Jyväskylä, Finland</dd>
+    </div>
+  </dl>
+
+  <ul class="mt-12 flex flex-wrap gap-3" aria-label="Social profiles">
+    @for (link of links; track link.url) {
+      <li>
+        <a
+          [href]="link.url"
+          target="_blank"
+          rel="noopener"
+          class="flex min-h-11 items-center gap-3 rounded-lg border border-rule-strong px-4 py-2.5 font-medium text-ink no-underline hover:border-brand hover:text-brand"
+        >
+          @if (link.icon) {
+            <img [src]="link.icon" alt="" width="112" height="112" class="size-6">
+          }
+          {{ link.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</section>

@@ -1,20 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { Router, provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { MatDialog } from '@angular/material/dialog';
 
 import { routes } from '../../app.routes';
 import { ProjectComponent } from './project.component';
 import { CodeComponent } from '../code/code.component';
-import { ImageDialogComponent } from '../../shared/image-dialog/image-dialog.component';
 
 describe('ProjectComponent', () => {
   let harness: RouterTestingHarness;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideRouter(routes, withComponentInputBinding()), provideNoopAnimations()]
+      providers: [provideRouter(routes, withComponentInputBinding())]
     });
     harness = await RouterTestingHarness.create();
   });
@@ -22,9 +19,9 @@ describe('ProjectComponent', () => {
   it('should render the project from the URL', async () => {
     await harness.navigateByUrl('/projects/elli', ProjectComponent);
     const page = harness.routeNativeElement!;
-    expect(page.querySelector('h2')?.textContent).toContain('Elli-Ticorporate');
-    expect(page.querySelectorAll('h3.text-2xl').length).toBeGreaterThan(3);
-    expect(page.querySelector('a[aria-label="Back to projects"]')?.getAttribute('href')).toBe('/code');
+    expect(page.querySelector('h1')?.textContent).toContain('Elli-Ticorporate');
+    expect(page.querySelectorAll('article section h2').length).toBeGreaterThanOrEqual(3);
+    expect(page.querySelector('a[href="/code"]')?.textContent).toContain('All projects');
   });
 
   it('should render inline formatting in paragraphs', async () => {
@@ -32,18 +29,20 @@ describe('ProjectComponent', () => {
     expect(harness.routeNativeElement!.querySelector('p span.font-semibold')).toBeTruthy();
   });
 
-  it('should show screenshots that open in a dialog', async () => {
+  it('should open a screenshot in a dialog and close it again', async () => {
     const component = await harness.navigateByUrl('/projects/elli', ProjectComponent);
-    const dialog = TestBed.inject(MatDialog);
-    spyOn(dialog, 'open');
-
-    const buttons = harness.routeNativeElement!.querySelectorAll<HTMLButtonElement>('button[aria-label^="Open image"]');
+    const page = harness.routeNativeElement!;
+    const buttons = page.querySelectorAll<HTMLButtonElement>('button[aria-label^="Open image"]');
     expect(buttons.length).toBe(6);
-    buttons[0].click();
 
-    expect(dialog.open).toHaveBeenCalledWith(ImageDialogComponent, jasmine.objectContaining({
-      data: component.project()!.images![0]
-    }));
+    buttons[0].click();
+    harness.detectChanges();
+    const dialog = page.querySelector('dialog')!;
+    expect(dialog.open).toBeTrue();
+    expect(dialog.querySelector('img')?.getAttribute('src')).toBe(component.project()!.images![0].src);
+
+    dialog.querySelector<HTMLButtonElement>('button[aria-label="Close image"]')!.click();
+    expect(dialog.open).toBeFalse();
   });
 
   it('should show a live website link instead of screenshots when there are none', async () => {
@@ -57,7 +56,7 @@ describe('ProjectComponent', () => {
     const component = await harness.navigateByUrl('/projects/elli', ProjectComponent);
     await harness.navigateByUrl('/projects/musicportfolio', ProjectComponent);
     expect(component.project()?.slug).toBe('musicportfolio');
-    expect(harness.routeNativeElement!.querySelector('h2')?.textContent).toContain('Music Portfolio Website');
+    expect(harness.routeNativeElement!.querySelector('h1')?.textContent).toContain('Music Portfolio Website');
   });
 
   it('should send unknown projects back to the Code page', async () => {
