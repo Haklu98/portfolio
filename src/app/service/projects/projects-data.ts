@@ -34,7 +34,7 @@ export const projects: Project[] = [
           as well as the <span class="font-semibold">filtering and confirmation modules</span>.
           Working with <span class="font-semibold text-red-500">Angular</span> and
           <span class="font-semibold text-blue-400">Tailwind</span>, I was able to create a visually appealing and
-          user-friendly interfac that followed the UI/UX planning of the project. I was also responsible for the
+          user-friendly interface that followed the UI/UX planning of the project. I was also responsible for the
           <span class="font-semibold">project manager</span> role, which involved overseeing the project with the
           help of our Scrum Master.`,
         ],
@@ -43,7 +43,7 @@ export const projects: Project[] = [
         heading: 'Agile Workflow',
         paragraphs: [
           `We used the agile method of <span class="font-semibold">Scrum</span> for this project. Our sprints were
-          2 weeks long, and we had daily scrum meetings to keep track on what everyone was doing. At the end of the
+          2 weeks long, and we had daily scrum meetings to keep track of what everyone was doing. At the end of the
           sprint we would have a <span class="font-semibold">Sprint Review with Elisa Oyj</span> to give feedback on
           the project and Sprint Retrospective to reflect on the sprint. At the start of the new sprint, we would
           have a Sprint Planning meeting where we would decide on the tasks for the next sprint with the help of the
@@ -55,7 +55,7 @@ export const projects: Project[] = [
         paragraphs: [
           `<span class="font-semibold">Personally</span> I enjoyed and learned a lot from this project. I was able
           to delve deep into the software development process and understand the agile methods that we used.
-          I also deepened my understanding on Angular Framework and to my personal surprise I also learned how to
+          I also deepened my understanding of the Angular framework and to my personal surprise I also learned how to
           create a responsive roadmap -styled yearly calendar with filtering based on project type and time.`,
         ],
       },
@@ -85,19 +85,19 @@ export const projects: Project[] = [
       {
         heading: 'Description',
         paragraphs: [
-          `<span class="font-semibold">Turvajätkät</span> is a security management corporation who specialize in
-          selling security solutions. I was commissioned to provide a simple web-site for their company using
-          wordpress. The site includes information about the company itself, their services and contact details.`,
-          `The website is built using a pre-made wordpress theme, with customizations made to fit the company's
+          `<span class="font-semibold">Turvajätkät</span> is a security management corporation that specializes in
+          selling security solutions. I was commissioned to provide a simple website for their company using
+          WordPress. The site includes information about the company itself, their services and contact details.`,
+          `The website is built using a pre-made WordPress theme, with customizations made to fit the company's
           branding and requirements.`,
         ],
       },
       {
         heading: 'Key Features',
         paragraphs: [
-          `The commissioner requested a simple and clean web-site to showcase their services and contact
+          `The commissioner requested a simple and clean website to showcase their services and contact
           information. I implemented a responsive design so that the site looks good on both desktop and mobile
-          devices, as well as contact form to allow potential clients to reach out easily.`,
+          devices, as well as a contact form to allow potential clients to reach out easily.`,
         ],
       },
       {
@@ -136,7 +136,7 @@ export const projects: Project[] = [
           music career, featuring audio samples, latest releases, and professional information for potential
           collaborators and clients.`,
           `<span class="font-semibold">The website</span> includes features such as
-          <span class="font-semibold">audio streaming</span> through soundcloud's embed player,
+          <span class="font-semibold">audio streaming</span> through SoundCloud's embed player,
           <span class="font-semibold">project showcases</span> with descriptions of my work,
           and <span class="font-semibold">contact forms</span> for booking inquiries.
           The website also provides information about my background in music production.`,
@@ -146,7 +146,7 @@ export const projects: Project[] = [
         heading: 'Key Features',
         paragraphs: [
           `The website includes responsive design to ensure optimal viewing on various devices, a language switcher
-          for english and finnish, SEO optimization to enhance online visibility, and work-in-progress social media
+          for English and Finnish, SEO optimization to enhance online visibility, and work-in-progress social media
           integration. The website is built using <span class="font-semibold">React</span> for the front-end,
           with <span class="font-semibold">AWS</span> services for hosting and backend functionalities.
           The AWS infrastructure uses AWS CDK for easy deployment and management, ensuring scalability and
@@ -159,8 +159,8 @@ export const projects: Project[] = [
         heading: 'Development Status',
         paragraphs: [
           `<span class="font-semibold">Currently</span> this project is in active development. I am implementing
-          additional features such as built-in music player so I don't have to rely on external services, social
-          media integration, and content management capabilities. Implementation of AWS Dynamo DB as database is
+          additional features such as a built-in music player so I don't have to rely on external services, social
+          media integration, and content management capabilities. Implementation of AWS DynamoDB as a database is
           planned for future development. The site will continue to evolve as my music portfolio grows.`,
         ],
       },
