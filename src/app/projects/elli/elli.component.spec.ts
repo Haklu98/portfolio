@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { ElliComponent } from './elli.component';
 
@@ -8,7 +9,8 @@ describe('ElliComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ElliComponent]
+      imports: [ElliComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
@@ -19,5 +21,10 @@ describe('ElliComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should link back to the projects page', () => {
+    const back: HTMLAnchorElement = fixture.nativeElement.querySelector('a[aria-label="Back to projects"]');
+    expect(back.getAttribute('href')).toBe('/code');
   });
 });

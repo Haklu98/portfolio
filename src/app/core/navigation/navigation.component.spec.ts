@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { NavigationComponent } from './navigation.component';
 
@@ -8,7 +9,8 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationComponent]
+      imports: [NavigationComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
@@ -19,5 +21,11 @@ describe('NavigationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render real links for the main pages', () => {
+    const hrefs = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('nav > div > a'))
+      .map(a => a.getAttribute('href'));
+    expect(hrefs).toEqual(['/', '/code', '/contact']);
   });
 });

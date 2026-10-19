@@ -1,0 +1,42 @@
+import { TestBed } from '@angular/core/testing';
+import { Router, provideRouter } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
+
+import { routes } from './app.routes';
+import { HomeComponent } from './pages/home/home.component';
+import { CodeComponent } from './pages/code/code.component';
+import { ElliComponent } from './projects/elli/elli.component';
+
+describe('app routes', () => {
+  let harness: RouterTestingHarness;
+  let router: Router;
+
+  beforeEach(async () => {
+    TestBed.configureTestingModule({ providers: [provideRouter(routes)] });
+    harness = await RouterTestingHarness.create();
+    router = TestBed.inject(Router);
+  });
+
+  it('should show the home page at the root URL', async () => {
+    await harness.navigateByUrl('/', HomeComponent);
+    expect(router.url).toBe('/');
+  });
+
+  it('should redirect /home to the root URL', async () => {
+    await harness.navigateByUrl('/home', HomeComponent);
+    expect(router.url).toBe('/');
+  });
+
+  it('should open pages directly by URL', async () => {
+    await harness.navigateByUrl('/code', CodeComponent);
+    expect(router.url).toBe('/code');
+
+    await harness.navigateByUrl('/elli', ElliComponent);
+    expect(router.url).toBe('/elli');
+  });
+
+  it('should redirect unknown URLs to the home page', async () => {
+    await harness.navigateByUrl('/does-not-exist', HomeComponent);
+    expect(router.url).toBe('/');
+  });
+});
