@@ -1,14 +1,14 @@
-<header class="border-b border-rule">
-  <div class="page flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-3">
-    <a routerLink="/" aria-label="Aleksi Hakala, home" class="block py-1">
+<header class="relative border-b border-rule">
+  <div class="page flex items-center justify-between gap-x-6 py-3">
+    <a routerLink="/" aria-label="Aleksi Hakala, home" class="block py-1" (click)="closeMenu()">
       <span class="signature h-10 w-[7.5rem] bg-ink!" aria-hidden="true"></span>
     </a>
 
-    <div class="flex items-center gap-3 sm:gap-6">
-      <nav aria-label="Main" class="flex gap-5 sm:gap-7 font-medium">
-        <a routerLink="/" routerLinkActive ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Home</a>
-        <a routerLink="/code" routerLinkActive ariaCurrentWhenActive="page" class="nav-link">Work</a>
-        <a routerLink="/contact" routerLinkActive ariaCurrentWhenActive="page" class="nav-link">Contact</a>
+    <div class="flex items-center gap-1 md:gap-6">
+      <nav aria-label="Main" class="flex gap-7 font-medium max-md:hidden">
+        @for (link of links; track link.path) {
+          <a [routerLink]="link.path" routerLinkActive ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: link.exact }" class="nav-link">{{ link.label }}</a>
+        }
       </nav>
 
       <button
@@ -29,6 +29,47 @@
           </svg>
         }
       </button>
+
+      <button
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+        class="grid size-11 place-items-center rounded-lg text-ink transition-colors hover:bg-surface hover:text-brand md:hidden"
+      >
+        @if (menuOpen()) {
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6L6 18"></path>
+          </svg>
+        } @else {
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        }
+      </button>
     </div>
   </div>
+
+  <nav
+    id="mobile-menu"
+    aria-label="Main"
+    [hidden]="!menuOpen()"
+    class="absolute inset-x-0 top-full z-20 border-b border-rule bg-bg shadow-[0_12px_24px_rgba(0,0,0,0.25)] md:hidden"
+  >
+    <ul class="page flex flex-col py-2 text-center">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            (click)="closeMenu()"
+            class="mobile-link"
+          >{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
 </header>

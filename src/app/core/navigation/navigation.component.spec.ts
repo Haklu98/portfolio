@@ -25,9 +25,55 @@ describe('NavigationComponent', () => {
   });
 
   it('should render real links for the main pages', () => {
-    const hrefs = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('nav a'))
+    const hrefs = (selector: string) => Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll(selector))
       .map(a => a.getAttribute('href'));
-    expect(hrefs).toEqual(['/', '/code', '/contact']);
+    expect(hrefs('header > div nav a')).toEqual(['/', '/code', '/contact']);
+    expect(hrefs('#mobile-menu a')).toEqual(['/', '/code', '/contact']);
+  });
+
+  describe('mobile menu', () => {
+    let menuButton: HTMLButtonElement;
+    let menu: HTMLElement;
+
+    beforeEach(() => {
+      menuButton = fixture.nativeElement.querySelector('button[aria-controls="mobile-menu"]');
+      menu = fixture.nativeElement.querySelector('#mobile-menu');
+    });
+
+    it('should start closed', () => {
+      expect(menuButton.getAttribute('aria-expanded')).toBe('false');
+      expect(menuButton.getAttribute('aria-label')).toBe('Open menu');
+      expect(menu.hidden).toBeTrue();
+    });
+
+    it('should open and close from the menu button', () => {
+      menuButton.click();
+      fixture.detectChanges();
+      expect(menuButton.getAttribute('aria-expanded')).toBe('true');
+      expect(menuButton.getAttribute('aria-label')).toBe('Close menu');
+      expect(menu.hidden).toBeFalse();
+
+      menuButton.click();
+      fixture.detectChanges();
+      expect(menu.hidden).toBeTrue();
+    });
+
+    it('should close when a link is chosen', () => {
+      menuButton.click();
+      fixture.detectChanges();
+      menu.querySelector<HTMLAnchorElement>('a[href="/contact"]')!.click();
+      fixture.detectChanges();
+      expect(component.menuOpen()).toBeFalse();
+      expect(menu.hidden).toBeTrue();
+    });
+
+    it('should close with the Escape key', () => {
+      menuButton.click();
+      fixture.detectChanges();
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+      fixture.detectChanges();
+      expect(menu.hidden).toBeTrue();
+    });
   });
 
   it('should toggle the theme and describe the next action for screen readers', () => {
