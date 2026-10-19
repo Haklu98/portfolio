@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, ChangeDetectionStrategy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterLink } from '@angular/router';
@@ -10,6 +10,7 @@ import { ImageDialogComponent } from '../../shared/image-dialog/image-dialog.com
 @Component({
   selector: 'app-project',
   imports: [MatIconModule, RouterLink],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './project.component.html',
 })
 export class ProjectComponent {

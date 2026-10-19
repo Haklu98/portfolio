@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ageOn } from './age';
 
 @Component({
   selector: 'app-home',
   imports: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {

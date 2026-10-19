@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from "./core/navigation/navigation.component";
 import { FooterComponent } from "./core/footer/footer.component";
@@ -9,6 +9,7 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
   selector: 'app-root',
   imports: [RouterOutlet, NavigationComponent, FooterComponent],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   animations: [
     trigger('routeAnimations', [
 

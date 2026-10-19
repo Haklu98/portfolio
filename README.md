@@ -4,7 +4,7 @@ My personal developer portfolio, showcasing my projects, skills and certificates
 
 ## Tech stack
 
-- [Angular](https://angular.dev) 19 (standalone components)
+- [Angular](https://angular.dev) 22 (standalone components, signals)
 - [Tailwind CSS](https://tailwindcss.com) 4
 - [Angular Material](https://material.angular.io) (menu, dialogs, icons)
 - Hosted on [Netlify](https://www.netlify.com)
@@ -14,13 +14,15 @@ My personal developer portfolio, showcasing my projects, skills and certificates
 ```
 src/app/
 ├── core/        # Layout: navigation and footer
-├── pages/       # Top-level pages: home, code, contact, about
-├── projects/    # Project detail pages (Elli, Turvajätkät, Music portfolio)
-└── service/     # Project data and models
-public/          # Static assets (images, screenshots, Netlify _redirects)
+├── pages/       # Pages: home, code, contact, about and the project detail page
+├── shared/      # Reusable components (image dialog)
+└── service/     # Project data (projects-data.ts) and models
+public/          # Static assets (WebP images, SVG icons, Netlify _redirects)
 ```
 
 ## Getting started
+
+Requires Node.js 22.22.3+ or 24.15+ (see `.nvmrc`).
 
 ```bash
 npm install
