@@ -36,7 +36,7 @@
         <h3 class="text-2xl underline text-center">Images</h3>
         @for (image of p.images; track image.src) {
           <button type="button" class="hover:scale-[1.1] duration-200" (click)="openImage(image)" [attr.aria-label]="'Open image: ' + image.alt">
-            <img class="w-[10rem]" [src]="image.src" [alt]="image.alt">
+            <img class="w-[10rem]" [src]="image.thumb" [width]="image.width" [height]="image.height" loading="lazy" [alt]="image.alt">
           </button>
         }
       </div>
@@ -76,7 +76,7 @@
               <div class="flex flex-row flex-wrap justify-end gap-4">
                 @for (tech of p.technologies; track tech.name) {
                   <div class="flex flex-col justify-center items-center">
-                    <i class="{{ tech.icon }} colored text-6xl"></i>
+                    <img [src]="'/icons/' + tech.icon + '.svg'" alt="" width="60" height="60" loading="lazy" class="size-15">
                     <p>{{ tech.name }}</p>
                   </div>
                 }

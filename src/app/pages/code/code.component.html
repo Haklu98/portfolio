@@ -56,7 +56,7 @@
             <a [routerLink]="['/projects', project.slug]"
               class="flex flex-col border-[1px] border-[#4b912f00] items-center hover:bg-[#7bf0ff56] hover:border-[1px] hover:border-blue-200 focus:border-blue-200 focus:bg-[#7bf0ffa1] focus:border active:bg-[#7bf0ff56] active:border-[1px] active:border-blue-200"
             >
-              <img [src]="project.thumbnail" [alt]="project.name" class="h-20 w-20" />
+              <img [src]="project.thumbnail" [alt]="project.name" width="160" height="160" class="h-20 w-20" />
               <p class="text-center text-sm text-white">{{ project.cardTitle }}</p>
             </a>
           </div>
@@ -74,7 +74,7 @@
         <div class="flex flex-row gap-6 justify-center max-lg:flex-wrap text-white">
           @for (skill of primarySkills; track skill.name) {
             <div class="flex flex-col justify-center items-center">
-              <i class="{{ skill.icon }} colored text-6xl"></i>
+              <img [src]="'/icons/' + skill.icon + '.svg'" alt="" width="60" height="60" loading="lazy" class="size-15">
               <p>{{ skill.name }}</p>
               <p>{{ skill.level }}/10</p>
             </div>
@@ -92,9 +92,14 @@
         >
           @for (skill of utilitySkills; track skill.name) {
             <div class="flex flex-col justify-center items-center">
-              <i
-                class="{{ skill.icon }} colored text-6xl drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
-              ></i>
+              <img
+                [src]="'/icons/' + skill.icon + '.svg'"
+                alt=""
+                width="60"
+                height="60"
+                loading="lazy"
+                class="size-15 drop-shadow-[1px_1px_2px_rgba(255,255,255,0.3)]"
+              />
               <p class="text-white">{{ skill.name }}</p>
             </div>
           }
@@ -116,6 +121,9 @@
                   ><img
                     [src]="certificate.image"
                     [alt]="certificate.name + ' badge'"
+                    width="300"
+                    height="300"
+                    loading="lazy"
                     class="w-3/5 hover:scale-[1.05] duration-150 hover:cursor-pointer"
                 /></a>
                 <p class="text-center text-white">{{ certificate.name }}</p>
