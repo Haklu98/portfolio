@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { Title } from '@angular/platform-browser';
 import { Router, provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
@@ -49,5 +50,18 @@ describe('app routes', () => {
   it('should redirect unknown URLs to the home page', async () => {
     await harness.navigateByUrl('/does-not-exist', HomeComponent);
     expect(router.url).toBe('/');
+  });
+
+  it('should set a page title for every page', async () => {
+    const title = TestBed.inject(Title);
+
+    await harness.navigateByUrl('/', HomeComponent);
+    expect(title.getTitle()).toBe('Aleksi Hakala | Developer Portfolio');
+
+    await harness.navigateByUrl('/code', CodeComponent);
+    expect(title.getTitle()).toBe('Code & Projects | Aleksi Hakala');
+
+    await harness.navigateByUrl('/projects/elli', ProjectComponent);
+    expect(title.getTitle()).toBe('Elli-Ticorporate | Aleksi Hakala');
   });
 });
