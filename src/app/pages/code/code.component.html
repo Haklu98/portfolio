@@ -1,6 +1,6 @@
-<section class="page pt-14 pb-16 md:pt-20">
+<section class="page pt-14 pb-16 max-md:text-center md:pt-20">
   <h1 class="text-[2.5rem] leading-tight font-semibold md:text-5xl">Work</h1>
-  <div class="mt-5 flex max-w-[40em] flex-col gap-4 text-lg">
+  <div class="mt-5 flex max-w-[40em] flex-col gap-4 text-lg max-md:mx-auto">
     <p>
       I'm a recently graduated Bachelor of Business Information Technology from Jamk University of Applied Sciences,
       looking for software development positions where I can put my skills to good use. My studies focused on full-stack development.
@@ -14,7 +14,7 @@
 </section>
 
 <section class="page pb-20" aria-labelledby="projects-heading">
-  <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+  <div class="mb-6 flex flex-wrap items-end justify-between gap-4 max-md:flex-col max-md:items-center max-md:text-center">
     <div>
       <h2 id="projects-heading" class="text-[2.375rem] leading-tight font-semibold">Projects</h2>
       <p class="mt-1 text-dim">Each bar is the time I put into the project.</p>
@@ -40,16 +40,16 @@
         <li [class.border-b]="!last" class="border-rule">
           <a
             [routerLink]="['/projects', track.slug]"
-            class="group flex flex-wrap items-center gap-x-0 gap-y-3 px-6 py-5 text-ink no-underline hover:bg-surface hover:text-ink"
+            class="group flex flex-wrap items-center gap-x-0 gap-y-3 px-6 py-5 text-ink no-underline hover:bg-surface hover:text-ink max-md:flex-col max-md:items-stretch max-md:px-4"
           >
-            <div class="flex w-[18.75rem] shrink-0 items-center gap-3.5">
+            <div class="flex w-[18.75rem] shrink-0 items-center gap-3.5 max-md:w-full max-md:flex-col max-md:gap-2 max-md:text-center">
               <img [src]="track.thumbnail" alt="" width="160" height="160" class="size-12 rounded-[10px]" [style.background]="track.thumbnailBackground">
               <div class="min-w-0">
                 <h3 class="text-xl leading-snug font-semibold group-hover:text-brand">{{ track.cardTitle }}</h3>
                 <p class="text-sm text-dim">{{ track.technologies[0].name }}, {{ track.technologies[1].name }}</p>
               </div>
             </div>
-            <div class="flex h-11 min-w-0 flex-[1_1_25rem] items-center gap-3 rounded-lg bg-surface">
+            <div class="flex h-11 min-w-0 flex-[1_1_25rem] items-center gap-3 rounded-lg bg-surface max-md:w-full max-md:flex-none">
               <div
                 class="h-full shrink-0 rounded-lg"
                 [class.bar-done]="track.status === 'Completed'"
@@ -80,7 +80,7 @@
       alt="Elli's roadmap-style yearly calendar"
       class="h-80 w-full min-w-0 flex-[999_1_35rem] bg-white object-cover object-[left_top]"
     >
-    <div class="flex-[1_1_18.75rem] bg-surface p-8">
+    <div class="flex-[1_1_18.75rem] bg-surface p-8 max-md:text-center">
       <p class="text-sm font-semibold text-brand">From Elli</p>
       <h3 class="mt-1.5 text-2xl leading-snug font-semibold group-hover:text-brand">Roadmap-style yearly calendar</h3>
       <p class="mt-3">
@@ -92,7 +92,7 @@
 </section>
 
 <section class="page pb-20" aria-label="Skills">
-  <div class="grid gap-6 md:grid-cols-3">
+  <div class="grid gap-6 max-md:text-center md:grid-cols-3">
     @for (group of skillGroups; track group.title; let i = $index) {
       <div class="border-t-2 pt-5" [class.border-brand]="i === 0" [class.border-rule-strong]="i !== 0">
         <h2 class="mb-2.5 text-[1.375rem] font-semibold">{{ group.title }}</h2>
@@ -111,8 +111,8 @@
 </section>
 
 <section class="page pb-24" aria-labelledby="certificates-heading">
-  <h2 id="certificates-heading" class="mb-6 text-[1.375rem] font-semibold">Certificates</h2>
-  <ul class="flex flex-wrap gap-4">
+  <h2 id="certificates-heading" class="mb-6 text-[1.375rem] font-semibold max-md:text-center">Certificates</h2>
+  <ul class="flex flex-wrap gap-4 max-md:flex-col max-md:items-center">
     @for (certificate of certificates; track certificate.url) {
       <li>
         <a
