@@ -28,4 +28,9 @@ describe('NavigationComponent', () => {
       .map(a => a.getAttribute('href'));
     expect(hrefs).toEqual(['/', '/code', '/contact']);
   });
+
+  it('should label the mobile menu button for screen readers', () => {
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('button[mat-icon-button]');
+    expect(button.getAttribute('aria-label')).toBe('Open navigation menu');
+  });
 });

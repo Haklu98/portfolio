@@ -10,7 +10,7 @@
           <span class="font-semibold">Email: </span>
           <a
             class="email hover:text-blue-600 hover:underline duration-150 text-white"
-            href="mailto:aleksi.hakala.98@gmail.com"
+            [href]="'mailto:' + email"
             >{{ email }}</a
           >
         </p>
@@ -25,34 +25,35 @@
     </div>
 
     <div class="flex flex-row flex-wrap gap-6">
-      <a href="https://www.instagram.com/lalexeii" target="_blank"
+      <a href="https://www.instagram.com/lalexeii" target="_blank" rel="noopener"
         ><img
           src="assets/images/insta.webp"
           width="112"
           height="112"
           loading="lazy"
-          alt="instagram"
+          alt="Instagram"
           class="h-14 w-auto hover:scale-[1.05] hover:drop-shadow-[0_4px_4px_rgba(100,0,100,2)] duration-[200ms] cursor-pointer"
       /></a>
       <a
         href="https://www.linkedin.com/in/aleksi-hakala-a061121a7/"
         target="_blank"
+        rel="noopener"
       >
         <img
           src="assets/images/linkedin.webp"
           width="112"
           height="112"
           loading="lazy"
-          alt="linkedin"
+          alt="LinkedIn"
           class="h-14 w-auto hover:scale-[1.05] hover:drop-shadow-[0_4px_4px_rgba(100,0,100,2)] duration-[200ms] cursor-pointer"
       /></a>
-      <a href="https://github.com/Haklu98" target="_blank"
+      <a href="https://github.com/Haklu98" target="_blank" rel="noopener"
         ><img
           src="assets/images/github.webp"
           width="112"
           height="112"
           loading="lazy"
-          alt="github"
+          alt="GitHub"
           class="h-14 w-auto hover:scale-[1.05] hover:drop-shadow-[0_4px_4px_rgba(100,0,100,2)] duration-[200ms] cursor-pointer"
       /></a>
     </div>

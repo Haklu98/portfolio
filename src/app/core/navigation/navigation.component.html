@@ -1,16 +1,16 @@
 <nav class="grid grid-cols-3 max-lg:grid-cols-4 h-[4.5rem] bg-gradient-to-r from-[#12032a] to-[#021424]">
-  <div class="max-lg:col-span-3 mx-10"><img src="assets/images/NimmariValkoinen.webp" width="384" height="128" fetchpriority="high" alt="signature" class="h-16 w-auto align-middle self-center"></div>
-  <div class="flex flew-row justify-center gap-4 py-4 max-lg:hidden">
+  <div class="max-lg:col-span-3 mx-10"><img src="assets/images/NimmariValkoinen.webp" width="384" height="128" fetchpriority="high" alt="Aleksi Hakala" class="h-16 w-auto align-middle self-center"></div>
+  <div class="flex flex-row justify-center gap-4 py-4 max-lg:hidden">
     <a routerLink="/" [routerLinkActive]="activeClasses" [routerLinkActiveOptions]="{ exact: true }" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl">Home</a>
     <a routerLink="/code" [routerLinkActive]="activeClasses" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl">Code</a>
     <!--<a routerLink="/about" [routerLinkActive]="activeClasses" class="bg-transparent transition hover:bg-[#fcfcfce8] text-slate-200 hover:text-black py-2 px-4 border border-white  hover:shadow-xl hover:border-slate-900 rounded-2xl">About</a>-->
   </div>
-  <div class="flex flew-row justify-center gap-4 py-4 max-lg:hidden">
+  <div class="flex flex-row justify-center gap-4 py-4 max-lg:hidden">
     <a routerLink="/contact" class="transition hover:bg-slate-200 bg-[#ffab7ae8] duration-150 text-slate-100 font-semibold hover:text-black py-2 px-4 border border-white hover:shadow-xl hover:border-slate-100 rounded-2xl hover:scale-[1.05]">Contact Me</a>
   </div>
   <div class="lg:hidden ">
     <div class="my-auto" >
-    <button mat-icon-button style="height: 4rem; width: 4rem;" [matMenuTriggerFor]="menu"><mat-icon class= "!text-white !text-5xl !size-[3rem] transition duration-200">menu</mat-icon></button></div>
+    <button mat-icon-button style="height: 4rem; width: 4rem;" [matMenuTriggerFor]="menu" aria-label="Open navigation menu"><mat-icon class= "!text-white !text-5xl !size-[3rem] transition duration-200">menu</mat-icon></button></div>
     <mat-menu #menu="matMenu" class="!w-[18rem] !bg-slate-800 ">
       <a mat-menu-item routerLink="/" class="!text-center !text-white">Home</a>
       <a mat-menu-item routerLink="/code" class="!text-center !text-white">Code</a>
