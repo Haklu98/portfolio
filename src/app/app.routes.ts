@@ -8,12 +8,13 @@ import { TurvajatkatComponent } from './projects/turvajatkat/turvajatkat.compone
 import { MusicportfolioComponent } from './projects/musicportfolio/musicportfolio.component';
 
 export const routes: Routes = [
-  { path : '', component: HomeComponent, data: {animation: 'HomePage'}},
-  { path: 'home', component: HomeComponent, data: {animation: 'HomePage'}},
-  { path: 'code', component: CodeComponent, data: {animation: 'CodePage'}},
-  { path: 'about', component: AboutComponent, data: {animation: 'AboutPage'}},
-  { path: 'contact', component: ContactComponent, data: {animation: 'ContactPage'}},
-  { path: 'elli', component: ElliComponent, data: {animation: 'ProjectPage'}},
-  { path: 'turvajatkat', component: TurvajatkatComponent, data: {animation: 'ProjectPage'}},
-  { path: 'musicportfolio', component: MusicportfolioComponent, data: {animation: 'ProjectPage'}},
+  { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'HomePage' } },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'code', component: CodeComponent, data: { animation: 'CodePage' } },
+  { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
+  { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
+  { path: 'elli', component: ElliComponent, data: { animation: 'ProjectPage' } },
+  { path: 'turvajatkat', component: TurvajatkatComponent, data: { animation: 'ProjectPage' } },
+  { path: 'musicportfolio', component: MusicportfolioComponent, data: { animation: 'ProjectPage' } },
+  { path: '**', redirectTo: '' },
 ];

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MAT_DIALOG_DATA,
   MatDialog,
@@ -18,7 +18,7 @@ import { FilteringComponent } from './dialogs/filtering/filtering.component';
 
 @Component({
   selector: 'app-elli',
-  imports: [MatIconModule],
+  imports: [MatIconModule, RouterLink],
   templateUrl: './elli.component.html',
   styleUrl: './elli.component.css'
 })
@@ -32,18 +32,12 @@ export class ElliComponent {
   confirmation = ConfirmationComponent;
   filtering = FilteringComponent;
 
-  constructor(private router: Router) {}
-
   openDialog(component: any): void {
     const dialogRef = this.dialog.open(component, {
       maxWidth: '90vw',
       height: 'auto', // Mahdollistaa sisällön mukautumisen
       maxHeight: '90vh'
     });
-  }
-
-  close() {
-    this.router.navigate(['code'], { skipLocationChange: true });
   }
 
 }
