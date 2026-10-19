@@ -20,4 +20,8 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show the current year in the copyright', () => {
+    expect(fixture.nativeElement.textContent).toContain(`© ${new Date().getFullYear()}`);
+  });
 });
