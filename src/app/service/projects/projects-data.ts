@@ -312,7 +312,7 @@ export const projects: ProjectSource[] = [
     thumbnail: '/MusicShortcut.webp',
     thumbnailBackground: '#FFFFFF',
     status: 'In Development',
-    hours: 80,
+    hours: 110,
     roles: {
       en: ['Full-Stack Developer', 'UI/UX Designer', 'Content Creator'],
       fi: ['Full stack -kehittäjä', 'UI/UX-suunnittelija', 'Sisällöntuottaja'],

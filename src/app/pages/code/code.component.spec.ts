@@ -51,7 +51,7 @@ describe('CodeComponent', () => {
 
   it('should mark projects that are still in development', () => {
     const music = component.tracks().find(t => t.slug === 'musicportfolio')!;
-    expect(music.label).toBe('~80 h so far');
+    expect(music.label).toBe('~110 h so far');
     expect(fixture.nativeElement.querySelectorAll('.bar-wip').length).toBe(2); // legend + bar
   });
 
@@ -82,7 +82,7 @@ describe('CodeComponent', () => {
     expect(text).toContain('Työkaluni');
     expect(text).toContain('Työkokemus');
     expect(text).toContain('Kehitteillä');
-    expect(component.tracks().find(t => t.slug === 'musicportfolio')!.label).toBe('~80 h tähän mennessä');
+    expect(component.tracks().find(t => t.slug === 'musicportfolio')!.label).toBe('~110 h tähän mennessä');
     expect(text).toContain('Musiikkiportfolio');
   });
 });
