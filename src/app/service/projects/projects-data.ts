@@ -344,7 +344,8 @@ export const projects: ProjectSource[] = [
           heading: 'Key Features',
           paragraphs: [
             `The website includes responsive design to ensure optimal viewing on various devices, a language switcher
-            for English and Finnish, and SEO optimization to enhance online visibility. The website is built using <span class="font-semibold">React</span> for the front-end,
+            for English and Finnish, and SEO optimization to enhance online visibility. Music data comes in through
+            a <span class="font-semibold">SongPort API</span> integration. The website is built using <span class="font-semibold">React</span> for the front-end,
             with <span class="font-semibold">AWS</span> services for hosting and backend functionalities.
             The AWS infrastructure uses AWS CDK for easy deployment and management, ensuring scalability and
             reliability. It's hosted through <span class="font-semibold">AWS S3</span> with a
@@ -357,8 +358,8 @@ export const projects: ProjectSource[] = [
           paragraphs: [
             `<span class="font-semibold">The site is live</span> and I keep it up to date: I update it whenever I
             release new music or want to refresh its look, so it evolves as my music portfolio grows.`,
-            `Possible future additions include a built-in music player so I don't have to rely on external services,
-            social media integration, content management capabilities and AWS DynamoDB as a database.`,
+            `Next up is <span class="font-semibold">social media integration</span>. A built-in music player, so I
+            wouldn't have to rely on external services, is also under consideration.`,
           ],
         },
       ],
@@ -381,7 +382,8 @@ export const projects: ProjectSource[] = [
           heading: 'Keskeiset ominaisuudet',
           paragraphs: [
             `Sivusto on responsiivinen, joten se toimii hyvin eri laitteilla. Siinä on kielivalinta suomeksi ja
-            englanniksi sekä hakukoneoptimointi näkyvyyden parantamiseksi.
+            englanniksi sekä hakukoneoptimointi näkyvyyden parantamiseksi. Musiikin tiedot tulevat sivustolle
+            <span class="font-semibold">SongPort</span>-rajapintaintegraation kautta.
             Frontend on toteutettu <span class="font-semibold">Reactilla</span>, ja hostaus ja taustatoiminnot
             hoituvat <span class="font-semibold">AWS</span>:n palveluilla. Infrastruktuuri on kuvattu AWS CDK:lla,
             mikä tekee julkaisusta ja hallinnasta helppoa sekä skaalautuvaa ja luotettavaa. Sivusto toimii
@@ -396,8 +398,8 @@ export const projects: ProjectSource[] = [
             `<span class="font-semibold">Sivusto on julkaistu</span>, ja pidän sitä ajan tasalla: päivitän sitä aina,
             kun julkaisen uutta musiikkia tai haluan uudistaa sen ulkoasua, joten se kehittyy musiikkiportfolioni
             kasvaessa.`,
-            `Mahdollisia jatkokehitysideoita ovat oma musiikkisoitin, jotta minun ei tarvitse tukeutua ulkoisiin
-            palveluihin, somekanavien integraatio, sisällönhallintatoiminnot sekä AWS DynamoDB tietokantana.`,
+            `Seuraavaksi sivustolle on tulossa <span class="font-semibold">somekanavien integraatio</span>. Harkinnassa
+            on myös oma musiikkisoitin, jotta minun ei tarvitsisi tukeutua ulkoisiin palveluihin.`,
           ],
         },
       ],
