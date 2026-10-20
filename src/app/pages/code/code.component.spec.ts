@@ -34,6 +34,7 @@ describe('CodeComponent', () => {
     expect(hrefs).toContain('/projects/elli');
     expect(hrefs).toContain('/projects/turvajatkat');
     expect(hrefs).toContain('/projects/musicportfolio');
+    expect(hrefs).toContain('/projects/thesis');
   });
 
   it('should size each project bar by the hours spent', () => {
@@ -43,6 +44,9 @@ describe('CodeComponent', () => {
     const elli = component.tracks().find(t => t.slug === 'elli')!;
     expect(elli.labelInside).toBeTrue();
     expect(elli.label).toBe('~450 h');
+    const thesis = component.tracks().find(t => t.slug === 'thesis')!;
+    expect(thesis.width).toBeLessThan(100);
+    expect(thesis.label).toBe('~810 h');
   });
 
   it('should mark projects that are still in development', () => {

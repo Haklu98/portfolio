@@ -4,8 +4,8 @@ import { LanguageService } from '../../core/i18n/language.service';
 import { ProjectsService } from '../../service/projects.service';
 import { alsoKnow, buildWith, certificates } from './code.data';
 
-/** Hours that fill a whole bar in the project timeline (the axis shows 0–400 h in five steps). */
-export const TIMELINE_MAX_HOURS = 500;
+/** Hours that fill a whole bar in the project timeline (the axis shows 0–800 h in five steps). */
+export const TIMELINE_MAX_HOURS = 1000;
 
 export interface SkillGroup {
   title: string;
@@ -24,7 +24,7 @@ export class CodeComponent {
   private readonly projects = inject(ProjectsService);
   readonly t = inject(LanguageService).content;
 
-  readonly axis = [0, 100, 200, 300, 400];
+  readonly axis = [0, 200, 400, 600, 800];
 
   /** Projects with their bar width; long bars carry their label inside, short ones next to the bar. */
   readonly tracks = computed(() => {

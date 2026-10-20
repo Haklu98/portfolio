@@ -8,6 +8,111 @@ import { ProjectSource } from './projects-template';
  */
 export const projects: ProjectSource[] = [
   {
+    slug: 'thesis',
+    name: {
+      en: 'AWS Supply Chain and generating realistic data using Bedrock',
+      fi: 'AWS Supply Chain ja realistisen datan generointi Bedrockia hyödyntäen',
+    },
+    cardTitle: { en: "Bachelor's thesis", fi: 'Opinnäytetyö' },
+    summary: {
+      en: "Bachelor's thesis for Skillwell Oy: an AWS CDK app that generates realistic supply chain data with Amazon Bedrock.",
+      fi: 'Opinnäytetyö Skillwell Oy:lle: AWS CDK -sovellus, joka generoi realistista toimitusketjudataa Amazon Bedrockin avulla.',
+    },
+    thumbnail: '/ThesisShortcut.webp',
+    status: 'Completed',
+    // 30 ECTS credits × 27 h
+    hours: 810,
+    roles: {
+      en: ['Cloud Developer', 'Thesis Author'],
+      fi: ['Pilvikehittäjä', 'Opinnäytetyön tekijä'],
+    },
+    technologies: [
+      { name: 'AWS', icon: 'amazonwebservices-plain' },
+      { name: 'TypeScript', icon: 'typescript-plain' },
+      { name: 'Node.js', icon: 'nodejs-plain' },
+    ],
+    sections: {
+      en: [
+        {
+          heading: 'Description',
+          paragraphs: [
+            `My <span class="font-semibold">Bachelor's thesis</span> for Jamk's Business Information Technology
+            programme, completed in November 2025. It was commissioned by <span class="font-semibold">Skillwell Oy</span>,
+            who wanted to understand how <span class="font-semibold">AWS Supply Chain</span> works and how AWS services
+            communicate with each other, without having to use real customer data.`,
+            `I built a <span class="font-semibold">data generator</span> as an <span class="font-semibold">AWS CDK</span>
+            app in TypeScript, extending a base that Skillwell provided. Every morning
+            <span class="font-semibold">EventBridge</span> starts a <span class="font-semibold">Step Functions</span>
+            workflow whose Lambda functions ask <span class="font-semibold">Claude 3 Sonnet on Amazon Bedrock</span> for
+            inventory, inbound order and outbound order data in parallel. The data is validated, converted to CSV and
+            saved to S3, where Supply Chain picks it up and ingests it automatically.`,
+          ],
+        },
+        {
+          heading: 'Challenges',
+          paragraphs: [
+            `Supply Chain is very strict about its data: a column named <code>date_created</code> instead of the expected
+            <code>created_at</code> was enough to reject a whole file, so the prompts had to describe the data model
+            precisely. The model's 4096-token output limit also cut off the last rows of larger tables, which I solved
+            by fixing the row count in each prompt and adding a validation step before anything reaches S3.`,
+          ],
+        },
+        {
+          heading: 'Personal Retrospective',
+          paragraphs: [
+            `The generated data ingested without errors, and Supply Chain's inventory view and network map showed it as
+            expected, which gave Skillwell concrete information about the service. Along the way I became much more
+            comfortable with <span class="font-semibold">infrastructure as code</span>, IAM permissions and working from
+            developer documentation.`,
+          ],
+        },
+      ],
+      fi: [
+        {
+          heading: 'Kuvaus',
+          paragraphs: [
+            `<span class="font-semibold">Opinnäytetyöni</span> Jamkin tietojenkäsittelyn tutkinto-ohjelmaan, valmistunut
+            marraskuussa 2025. Toimeksiantajana oli <span class="font-semibold">Skillwell Oy</span>, joka halusi
+            ymmärtää, miten <span class="font-semibold">AWS Supply Chain</span> toimii ja miten AWS:n palvelut
+            kommunikoivat keskenään, ilman että testaukseen tarvitaan oikeaa asiakasdataa.`,
+            `Rakensin <span class="font-semibold">datageneraattorin</span> TypeScriptillä
+            <span class="font-semibold">AWS CDK</span> -sovelluksena Skillwellin antaman pohjan päälle. Joka aamu
+            <span class="font-semibold">EventBridge</span> käynnistää <span class="font-semibold">Step Functions</span>
+            -työnkulun, jonka Lambda-funktiot pyytävät <span class="font-semibold">Amazon Bedrockin Claude 3 Sonnet</span>
+            -mallilta rinnakkain varasto-, saapuvien tilausten ja lähtevien tilausten dataa. Data validoidaan,
+            muunnetaan CSV-muotoon ja tallennetaan S3:een, josta Supply Chain ingestoi sen automaattisesti.`,
+          ],
+        },
+        {
+          heading: 'Haasteet',
+          paragraphs: [
+            `Supply Chain on hyvin tarkka datastaan: jo sarake nimeltä <code>date_created</code> odotetun
+            <code>created_at</code>-sarakkeen sijaan riitti hylkäämään koko tiedoston, joten promptien piti kuvata
+            tietomalli tarkasti. Mallin 4096 tokenin tulosteraja myös katkaisi suurempien taulukoiden viimeiset rivit.
+            Ratkaisin tämän määrittelemällä rivimäärän jokaisessa promptissa ja lisäämällä validointivaiheen ennen
+            kuin mitään tallennetaan S3:een.`,
+          ],
+        },
+        {
+          heading: 'Oma retrospektiivi',
+          paragraphs: [
+            `Generoitu data ingestoitui ilman virheitä, ja Supply Chainin varastonäkymä ja verkostokartta näyttivät sen
+            odotetusti, mikä antoi Skillwellille konkreettista tietoa palvelusta. Samalla opin työskentelemään paljon
+            varmemmin <span class="font-semibold">infrastruktuuri koodina</span> -mallilla, IAM-oikeuksien kanssa ja
+            kehittäjädokumentaation pohjalta.`,
+          ],
+        },
+      ],
+    },
+    images: [
+      { src: '/screenshots/thesis/thesis-architecture.webp', thumb: '/screenshots/thesis/thesis-architecture-thumb.webp', width: 1290, height: 730, alt: { en: 'Architecture of the data generation workflow', fi: 'Datan generoinnin arkkitehtuurikaavio' } },
+      { src: '/screenshots/thesis/thesis-inventory.webp', thumb: '/screenshots/thesis/thesis-inventory-thumb.webp', width: 1610, height: 716, alt: { en: 'Generated data in the Supply Chain inventory view', fi: 'Generoitu data Supply Chainin varastonäkymässä' } },
+      { src: '/screenshots/thesis/thesis-network-map.webp', thumb: '/screenshots/thesis/thesis-network-map-thumb.webp', width: 1473, height: 772, alt: { en: 'Supply Chain network map with the generated sites', fi: 'Supply Chainin verkostokartta generoiduilla toimipisteillä' } },
+    ],
+    liveUrl: 'https://www.theseus.fi/items/d7f0dd5a-5f03-4a9e-9b51-b471169b7780',
+    liveLabel: 'theseus.fi',
+  },
+  {
     slug: 'elli',
     name: { en: 'Elli-Ticorporate', fi: 'Elli-Ticorporate' },
     cardTitle: { en: 'Elli-Ticorporate', fi: 'Elli-Ticorporate' },
