@@ -2,6 +2,7 @@ import { Component, inject, ChangeDetectionStrategy, computed } from '@angular/c
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../core/i18n/language.service';
 import { ProjectsService } from '../../service/projects.service';
+import { ProjectStatus } from '../../service/projects/projects-template';
 import { alsoKnow, buildWith, certificates } from './code.data';
 
 /** Hours that fill a whole bar in the project timeline (the axis shows 0–800 h in five steps). */
@@ -39,6 +40,11 @@ export class CodeComponent {
       };
     });
   });
+
+  /** Statuses shown in the legend: only the ones some project has, completed first. */
+  readonly statuses = computed<ProjectStatus[]>(() =>
+    (['Completed', 'In Development'] as const).filter(status => this.projects.getAll().some(project => project.status === status)),
+  );
 
   readonly skillGroups = computed<SkillGroup[]>(() => {
     const work = this.t().work;

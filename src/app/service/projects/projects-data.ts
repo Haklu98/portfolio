@@ -311,7 +311,7 @@ export const projects: ProjectSource[] = [
     },
     thumbnail: '/MusicShortcut.webp',
     thumbnailBackground: '#FFFFFF',
-    status: 'In Development',
+    status: 'Completed',
     hours: 110,
     roles: {
       en: ['Full-Stack Developer', 'UI/UX Designer', 'Content Creator'],
@@ -344,8 +344,7 @@ export const projects: ProjectSource[] = [
           heading: 'Key Features',
           paragraphs: [
             `The website includes responsive design to ensure optimal viewing on various devices, a language switcher
-            for English and Finnish, SEO optimization to enhance online visibility, and work-in-progress social media
-            integration. The website is built using <span class="font-semibold">React</span> for the front-end,
+            for English and Finnish, and SEO optimization to enhance online visibility. The website is built using <span class="font-semibold">React</span> for the front-end,
             with <span class="font-semibold">AWS</span> services for hosting and backend functionalities.
             The AWS infrastructure uses AWS CDK for easy deployment and management, ensuring scalability and
             reliability. It's hosted through <span class="font-semibold">AWS S3</span> with a
@@ -354,12 +353,12 @@ export const projects: ProjectSource[] = [
           ],
         },
         {
-          heading: 'Development Status',
+          heading: 'Maintenance and Future Development',
           paragraphs: [
-            `<span class="font-semibold">Currently</span> this project is in active development. I am implementing
-            additional features such as a built-in music player so I don't have to rely on external services, social
-            media integration, and content management capabilities. Implementation of AWS DynamoDB as a database is
-            planned for future development. The site will continue to evolve as my music portfolio grows.`,
+            `<span class="font-semibold">The site is live</span> and I keep it up to date: I update it whenever I
+            release new music or want to refresh its look, so it evolves as my music portfolio grows.`,
+            `Possible future additions include a built-in music player so I don't have to rely on external services,
+            social media integration, content management capabilities and AWS DynamoDB as a database.`,
           ],
         },
       ],
@@ -382,7 +381,7 @@ export const projects: ProjectSource[] = [
           heading: 'Keskeiset ominaisuudet',
           paragraphs: [
             `Sivusto on responsiivinen, joten se toimii hyvin eri laitteilla. Siinä on kielivalinta suomeksi ja
-            englanniksi, hakukoneoptimointi näkyvyyden parantamiseksi sekä keskeneräinen somekanavien integraatio.
+            englanniksi sekä hakukoneoptimointi näkyvyyden parantamiseksi.
             Frontend on toteutettu <span class="font-semibold">Reactilla</span>, ja hostaus ja taustatoiminnot
             hoituvat <span class="font-semibold">AWS</span>:n palveluilla. Infrastruktuuri on kuvattu AWS CDK:lla,
             mikä tekee julkaisusta ja hallinnasta helppoa sekä skaalautuvaa ja luotettavaa. Sivusto toimii
@@ -392,12 +391,13 @@ export const projects: ProjectSource[] = [
           ],
         },
         {
-          heading: 'Kehityksen tila',
+          heading: 'Ylläpito ja jatkokehitys',
           paragraphs: [
-            `<span class="font-semibold">Tällä hetkellä</span> projekti on aktiivisessa kehityksessä. Työn alla on
-            lisäominaisuuksia, kuten oma musiikkisoitin, jotta minun ei tarvitse tukeutua ulkoisiin palveluihin,
-            somekanavien integraatio ja sisällönhallintatoiminnot. Tietokannaksi on tarkoitus ottaa myöhemmin
-            AWS DynamoDB. Sivusto kehittyy edelleen musiikkiportfolioni kasvaessa.`,
+            `<span class="font-semibold">Sivusto on julkaistu</span>, ja pidän sitä ajan tasalla: päivitän sitä aina,
+            kun julkaisen uutta musiikkia tai haluan uudistaa sen ulkoasua, joten se kehittyy musiikkiportfolioni
+            kasvaessa.`,
+            `Mahdollisia jatkokehitysideoita ovat oma musiikkisoitin, jotta minun ei tarvitse tukeutua ulkoisiin
+            palveluihin, somekanavien integraatio, sisällönhallintatoiminnot sekä AWS DynamoDB tietokantana.`,
           ],
         },
       ],

@@ -49,10 +49,17 @@ describe('CodeComponent', () => {
     expect(thesis.label).toBe('~810 h');
   });
 
-  it('should mark projects that are still in development', () => {
+  it('should only show the statuses that some project has in the legend', () => {
+    const statuses = component.tracks().map(t => t.status);
+    expect(component.statuses().length).toBe(new Set(statuses).size);
     const music = component.tracks().find(t => t.slug === 'musicportfolio')!;
-    expect(music.label).toBe('~110 h so far');
-    expect(fixture.nativeElement.querySelectorAll('.bar-wip').length).toBe(2); // legend + bar
+    expect(music.status).toBe('Completed');
+    expect(music.label).toBe('~110 h');
+    expect(fixture.nativeElement.querySelectorAll('.bar-wip').length).toBe(statuses.filter(s => s === 'In Development').length * 2);
+  });
+
+  it('should label hours spent so far on projects in development', () => {
+    expect(component.t().work.hoursSoFar(40)).toBe('~40 h so far');
   });
 
   it('should render every skill and certificate from the data', () => {
@@ -81,8 +88,8 @@ describe('CodeComponent', () => {
     expect(fixture.nativeElement.querySelector('h1').textContent).toContain('Työt');
     expect(text).toContain('Työkaluni');
     expect(text).toContain('Työkokemus');
-    expect(text).toContain('Kehitteillä');
-    expect(component.tracks().find(t => t.slug === 'musicportfolio')!.label).toBe('~110 h tähän mennessä');
+    expect(text).toContain('Valmis');
+    expect(component.t().work.hoursSoFar(40)).toBe('~40 h tähän mennessä');
     expect(text).toContain('Musiikkiportfolio');
   });
 });

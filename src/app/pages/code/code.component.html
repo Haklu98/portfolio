@@ -42,8 +42,11 @@
       <p class="mt-1 text-dim">{{ t().work.barsHint }}</p>
     </div>
     <div class="flex gap-5 text-[0.9375rem]">
-      <span class="flex items-center gap-2"><span class="bar-done h-3 w-[1.125rem] rounded-[3px]"></span>{{ t().status.Completed }}</span>
-      <span class="flex items-center gap-2"><span class="bar-wip h-3 w-[1.125rem] rounded-[3px]"></span>{{ t().status['In Development'] }}</span>
+      @for (status of statuses(); track status) {
+        <span class="flex items-center gap-2">
+          <span class="h-3 w-[1.125rem] rounded-[3px]" [class.bar-done]="status === 'Completed'" [class.bar-wip]="status !== 'Completed'"></span>{{ t().status[status] }}
+        </span>
+      }
     </div>
   </div>
 
