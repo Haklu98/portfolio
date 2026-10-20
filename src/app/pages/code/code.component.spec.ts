@@ -63,12 +63,20 @@ describe('CodeComponent', () => {
     expect(text).toContain('AWS Certified Cloud Practitioner');
   });
 
+  it('should list work experience, current job first', () => {
+    const jobs = Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('section[aria-labelledby="experience-heading"] ol > li'));
+    expect(jobs.length).toBe(2);
+    expect(jobs[0].textContent).toContain('Peasy Gig Oy');
+    expect(jobs[1].textContent).toContain('Skillwell Oy');
+  });
+
   it('should switch the page to Finnish', () => {
     TestBed.inject(LanguageService).set('fi');
     fixture.detectChanges();
     const text: string = fixture.nativeElement.textContent;
     expect(fixture.nativeElement.querySelector('h1').textContent).toContain('Työt');
     expect(text).toContain('Työkaluni');
+    expect(text).toContain('Työkokemus');
     expect(text).toContain('Kehitteillä');
     expect(component.tracks().find(t => t.slug === 'musicportfolio')!.label).toBe('~80 h tähän mennessä');
     expect(text).toContain('Musiikkiportfolio');

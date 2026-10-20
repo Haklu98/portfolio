@@ -60,9 +60,32 @@ export const en = {
       'from Jamk University of Applied Sciences, where my studies focused on full-stack development.',
     experience:
       'I know JavaScript and TypeScript well, along with several frameworks built on them, and I have recently added React Native, ' +
-      'Expo and Supabase to my toolkit. This website is built with Angular and Tailwind. Before Peasy Gig, during my internship at ' +
-      'Skillwell Oy, I was part of a team that built a cloud-based business offer evaluator: I worked with models like Nova Pro and ' +
-      'Claude 3 Sonnet and built the API integration with hankintailmoitukset.fi, using Python and React.',
+      'Expo and Supabase to my toolkit. This website is built with Angular and Tailwind.',
+    experienceTitle: 'Work experience',
+    jobs: [
+      {
+        role: 'Software Developer',
+        company: 'Peasy Gig Oy',
+        period: 'Aug 2026 – present',
+        place: 'Seinäjoki',
+        current: true,
+        text:
+          'I work as a software developer on both the mobile app and the web app. My role also covers maintaining and ' +
+          'evolving the database, as well as architecture design.',
+        tech: ['React Native', 'Expo', 'Supabase', 'TypeScript'],
+      },
+      {
+        role: 'Cloud Development Intern',
+        company: 'Skillwell Oy',
+        period: 'Aug 2025 – Dec 2025',
+        place: 'Jyväskylä',
+        current: false,
+        text:
+          'Part of a team that built a cloud-based business offer evaluator. I worked with models like Nova Pro and Claude 3 Sonnet ' +
+          'and built the API integration with hankintailmoitukset.fi.',
+        tech: ['AWS', 'TypeScript', 'Python', 'React'],
+      },
+    ],
     projects: 'Projects',
     barsHint: 'Each bar is the time I put into the project.',
     project: 'Project',
@@ -80,12 +103,7 @@ export const en = {
     buildWith: 'Build with',
     alsoKnow: 'Also know',
     backgroundTitle: 'Background',
-    background: [
-      'Software Developer at Peasy Gig Oy',
-      'BBA in Business Information Technology, Jamk',
-      'Cloud development intern at Skillwell Oy',
-      'AWS Certified Cloud Practitioner',
-    ],
+    background: ['BBA in Business Information Technology, Jamk', 'AWS Certified Cloud Practitioner'],
     certificates: 'Certificates',
     badgeAlt: (name: string) => `${name} badge`,
   },

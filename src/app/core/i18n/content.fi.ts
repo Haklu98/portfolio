@@ -46,8 +46,8 @@ export const fi: SiteContent = {
     photoAlt: 'Aleksi Hakala hymyilee kaupungin kadulla',
     role: 'Ohjelmistokehittäjä Seinäjoelta',
     intro: (age: number) =>
-      `Olen ${age} vuotta nuori ja asun Seinäjoella. Työskentelen ohjelmistokehittäjänä Peasy Gig Oy:llä, ` +
-      `ja olen valmistunut Jamkista tradenomiksi (tietojenkäsittely).`,
+      `Olen ${age}-vuotias ja asun Seinäjoella. Työskentelen ohjelmistokehittäjänä Peasy Gig Oy:llä, ` +
+      `ja olen tutkinnoltani Tietojenkäsittelyn Tradenomi.`,
     background:
       'Ennen ohjelmistoalaa keräsin kokemusta valokuvauksesta, videokuvauksesta, tapahtumien järjestämisestä ja somemarkkinoinnista. ' +
       'Vapaa-ajallani käyn ahkerasti salilla ja pelaan vaihtelevia määriä Dungeons & Dragons -roolipeliä.',
@@ -62,9 +62,32 @@ export const fi: SiteContent = {
       'Jyväskylän ammattikorkeakoulusta, jossa opintoni painottuivat full stack -kehitykseen.',
     experience:
       'Hallitsen JavaScriptin ja TypeScriptin hyvin sekä useita niiden päälle rakennettuja sovelluskehyksiä, ja olen hiljattain ' +
-      'ottanut työkaluiksi myös React Nativen, Expon ja Supabasen. Tämä sivusto on tehty Angularilla ja Tailwindilla. Ennen Peasy ' +
-      'Gigiä olin harjoittelussa Skillwell Oy:llä osana tiimiä, joka rakensi pilvipohjaisen tarjousten arviointityökalun: työskentelin ' +
-      'Nova Pro- ja Claude 3 Sonnet -mallien parissa ja toteutin rajapintaintegraation hankintailmoitukset.fi-palveluun Pythonilla ja Reactilla.',
+      'ottanut työkaluiksi myös React Nativen, Expon ja Supabasen. Tämä sivusto on tehty Angularilla ja Tailwindilla.',
+    experienceTitle: 'Työkokemus',
+    jobs: [
+      {
+        role: 'Ohjelmistokehittäjä',
+        company: 'Peasy Gig Oy',
+        period: '8/2026 – nyt',
+        place: 'Seinäjoki',
+        current: true,
+        text:
+          'Toimin ohjelmistokehittäjänä sekä mobiili- että websovelluksen parissa. Työnkuvaani kuuluvat myös tietokannan ' +
+          'ylläpito ja muokkaukset sekä arkkitehtuurisuunnittelu.',
+        tech: ['React Native', 'Expo', 'Supabase', 'TypeScript'],
+      },
+      {
+        role: 'Pilvikehityksen harjoittelija',
+        company: 'Skillwell Oy',
+        period: '8/2025 – 12/2025',
+        place: 'Jyväskylä',
+        current: false,
+        text:
+          'Osana tiimiä, joka rakensi pilvipohjaisen tarjousten arviointityökalun. Työskentelin Nova Pro- ja Claude 3 Sonnet ' +
+          '-mallien parissa ja toteutin rajapintaintegraation hankintailmoitukset.fi-palveluun.',
+        tech: ['AWS', 'TypeScript', 'Python', 'React'],
+      },
+    ],
     projects: 'Projektit',
     barsHint: 'Palkin pituus kertoo, kuinka paljon aikaa käytin projektiin.',
     project: 'Projekti',
@@ -82,12 +105,7 @@ export const fi: SiteContent = {
     buildWith: 'Työkaluni',
     alsoKnow: 'Osaan myös',
     backgroundTitle: 'Tausta',
-    background: [
-      'Ohjelmistokehittäjä, Peasy Gig Oy',
-      'Tradenomi (tietojenkäsittely), Jamk',
-      'Pilvikehityksen harjoittelija, Skillwell Oy',
-      'AWS Certified Cloud Practitioner',
-    ],
+    background: ['Tradenomi (tietojenkäsittely), Jamk', 'AWS Certified Cloud Practitioner'],
     certificates: 'Sertifikaatit',
     badgeAlt: (name: string) => `${name} -merkki`,
   },

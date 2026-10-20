@@ -52,7 +52,7 @@ describe('HomeComponent', () => {
     TestBed.inject(LanguageService).set('fi');
     fixture.detectChanges();
     const text: string = fixture.nativeElement.textContent;
-    expect(text).toContain(`Olen ${component.age} vuotta nuori`);
+    expect(text).toContain(`Olen ${component.age}-vuotias`);
     expect(text).toContain('Katso projektini');
     expect(component.greeting()).toMatch(/^(Hei|Hyvää)/);
   });
