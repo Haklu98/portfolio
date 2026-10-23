@@ -12,6 +12,7 @@
         <p class="mt-4">
           <span class="block text-sm text-dim">{{ t().pricing.from }}</span>
           <span class="price text-4xl font-semibold text-brand">{{ formatPrice(plan.price) }}</span>
+          <span class="vat ml-1 text-lg text-dim">{{ t().pricing.vat }}</span>
           @if (plan.monthly) {
             <span class="ml-1 text-lg text-dim">{{ t().pricing.perMonth }}</span>
           }

@@ -135,6 +135,7 @@ export const en = {
       'Starting prices for the most common projects. Every project is a little different, ' +
       'so you always get a written quote before any work begins.',
     from: 'from',
+    vat: '+ VAT',
     perMonth: '/ month',
     plansLabel: 'Services and starting prices',
     plans: [

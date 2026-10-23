@@ -12,6 +12,10 @@ describe('PricingComponent', () => {
   const prices = () => Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('.price'))
     .map(el => el.textContent!.replace(/\s/g, ' ').trim());
 
+  /** The VAT label shown after each price. */
+  const vats = () => Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('.vat'))
+    .map(el => el.textContent!.trim());
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PricingComponent],
@@ -38,6 +42,7 @@ describe('PricingComponent', () => {
     expect(fixture.nativeElement.querySelectorAll('.plan').length).toBe(4);
     expect(prices()).toEqual(['€690', '€1,400', '€3,500', '€30']);
     expect(fixture.nativeElement.textContent).toContain('/ month');
+    expect(vats()).toEqual(['+ VAT', '+ VAT', '+ VAT', '+ VAT']);
   });
 
   it('should show the Finnish texts and price format', () => {
@@ -48,6 +53,7 @@ describe('PricingComponent', () => {
     expect(text).toContain('alkaen');
     expect(text).toContain('/ kk');
     expect(prices()).toEqual(['690 €', '1 400 €', '3 500 €', '30 €']);
+    expect(vats()).toEqual(['+ alv', '+ alv', '+ alv', '+ alv']);
   });
 
   it('should link to the contact page for a quote', () => {

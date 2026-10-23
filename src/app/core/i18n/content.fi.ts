@@ -137,6 +137,7 @@ export const fi: SiteContent = {
       'Alkaen-hinnat yleisimmille projekteille. Jokainen projekti on hieman erilainen, ' +
       'joten saat aina kirjallisen tarjouksen ennen kuin työ alkaa.',
     from: 'alkaen',
+    vat: '+ alv',
     perMonth: '/ kk',
     plansLabel: 'Palvelut ja alkaen-hinnat',
     plans: [
