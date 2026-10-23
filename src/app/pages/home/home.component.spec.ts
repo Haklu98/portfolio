@@ -57,9 +57,9 @@ describe('HomeComponent', () => {
     expect(component.greeting()).toMatch(/^(Hei|Hyvää)/);
   });
 
-  it('should link to the projects and contact pages', () => {
+  it('should link to the projects, pricing and contact pages', () => {
     fixture.detectChanges();
     const hrefs = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('a')).map(a => a.getAttribute('href'));
-    expect(hrefs).toEqual(['/code', '/contact']);
+    expect(hrefs).toEqual(['/code', '/pricing', '/contact']);
   });
 });

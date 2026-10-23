@@ -28,8 +28,8 @@ describe('NavigationComponent', () => {
   it('should render real links for the main pages', () => {
     const hrefs = (selector: string) => Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll(selector))
       .map(a => a.getAttribute('href'));
-    expect(hrefs('header > div nav a')).toEqual(['/', '/code', '/contact']);
-    expect(hrefs('#mobile-menu a')).toEqual(['/', '/code', '/contact']);
+    expect(hrefs('header > div nav a')).toEqual(['/', '/code', '/pricing', '/contact']);
+    expect(hrefs('#mobile-menu a')).toEqual(['/', '/code', '/pricing', '/contact']);
   });
 
   it('should switch the language from the EN/FI buttons', () => {
@@ -44,7 +44,7 @@ describe('NavigationComponent', () => {
     expect(fiButton.getAttribute('aria-pressed')).toBe('true');
     expect(enButton.getAttribute('aria-pressed')).toBe('false');
     const labels = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('header > div nav a')).map(a => a.textContent?.trim());
-    expect(labels).toEqual(['Etusivu', 'Työt', 'Yhteystiedot']);
+    expect(labels).toEqual(['Etusivu', 'Työt', 'Hinnat', 'Yhteystiedot']);
 
     enButton.click();
     fixture.detectChanges();

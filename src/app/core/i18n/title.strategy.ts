@@ -5,7 +5,7 @@ import { LanguageService } from './language.service';
 import { ProjectsService } from '../../service/projects.service';
 
 /** Keys used as `title` in app.routes.ts; the text comes from the current language's `titles`. */
-export type PageTitleKey = 'home' | 'work' | 'contact' | 'about' | 'project';
+export type PageTitleKey = 'home' | 'work' | 'contact' | 'about' | 'pricing' | 'project';
 
 /**
  * Sets the browser tab title from the route's title key in the current language,

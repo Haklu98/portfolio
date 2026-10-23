@@ -1,0 +1,42 @@
+<section class="page pt-14 pb-24 md:pt-20">
+  <div class="max-md:text-center">
+    <h1 class="text-[2.5rem] leading-tight font-semibold md:text-5xl">{{ t().pricing.title }}</h1>
+    <p class="mt-4 max-w-[36em] text-lg text-dim max-md:mx-auto">{{ t().pricing.intro }}</p>
+  </div>
+
+  <ul class="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" [attr.aria-label]="t().pricing.plansLabel">
+    @for (plan of t().pricing.plans; track plan.name) {
+      <li class="plan flex flex-col rounded-xl border border-rule bg-surface p-6 transition-colors hover:border-rule-strong">
+        <h2 class="text-xl font-semibold">{{ plan.name }}</h2>
+
+        <p class="mt-4">
+          <span class="block text-sm text-dim">{{ t().pricing.from }}</span>
+          <span class="price text-4xl font-semibold text-brand">{{ formatPrice(plan.price) }}</span>
+          @if (plan.monthly) {
+            <span class="ml-1 text-lg text-dim">{{ t().pricing.perMonth }}</span>
+          }
+        </p>
+
+        <p class="mt-4 text-dim">{{ plan.text }}</p>
+
+        <ul class="mt-6 flex flex-col gap-2.5 border-t border-rule pt-6">
+          @for (item of plan.includes; track item) {
+            <li class="flex gap-2.5">
+              <svg aria-hidden="true" class="mt-1 shrink-0 text-brand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12.5l4.5 4.5L19 7.5"></path>
+              </svg>
+              <span>{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </li>
+    }
+  </ul>
+
+  <p class="mt-6 text-dim max-md:text-center">{{ t().pricing.note }}</p>
+
+  <div class="mt-14 flex flex-wrap items-center justify-between gap-6 rounded-xl border border-rule-strong p-8 max-md:flex-col max-md:text-center">
+    <h2 class="text-2xl font-semibold md:text-3xl">{{ t().pricing.ctaTitle }}</h2>
+    <a routerLink="/contact" class="btn btn-primary">{{ t().pricing.cta }}</a>
+  </div>
+</section>

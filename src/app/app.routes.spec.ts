@@ -7,6 +7,7 @@ import { routes } from './app.routes';
 import { HomeComponent } from './pages/home/home.component';
 import { CodeComponent } from './pages/code/code.component';
 import { ProjectComponent } from './pages/project/project.component';
+import { PricingComponent } from './pages/pricing/pricing.component';
 import { LocalizedTitleStrategy } from './core/i18n/title.strategy';
 import { LanguageService } from './core/i18n/language.service';
 
@@ -38,6 +39,9 @@ describe('app routes', () => {
 
     await harness.navigateByUrl('/projects/elli', ProjectComponent);
     expect(router.url).toBe('/projects/elli');
+
+    await harness.navigateByUrl('/pricing', PricingComponent);
+    expect(router.url).toBe('/pricing');
   });
 
   it('should redirect old project URLs to /projects/:slug', async () => {
@@ -71,6 +75,10 @@ describe('app routes', () => {
     await harness.navigateByUrl('/code', CodeComponent);
     TestBed.tick();
     expect(title.getTitle()).toBe('Work | Aleksi Hakala');
+
+    await harness.navigateByUrl('/pricing', PricingComponent);
+    TestBed.tick();
+    expect(title.getTitle()).toBe('Pricing | Aleksi Hakala');
 
     await harness.navigateByUrl('/projects/elli', ProjectComponent);
     TestBed.tick();

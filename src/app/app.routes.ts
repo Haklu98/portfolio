@@ -9,6 +9,7 @@ export const routes: Routes = [
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'code', loadComponent: () => import('./pages/code/code.component').then(m => m.CodeComponent), title: 'work' },
   { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent), title: 'about' },
+  { path: 'pricing', loadComponent: () => import('./pages/pricing/pricing.component').then(m => m.PricingComponent), title: 'pricing' },
   { path: 'contact', loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent), title: 'contact' },
   {
     path: 'projects/:slug',

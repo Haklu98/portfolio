@@ -13,12 +13,14 @@ export const en = {
     work: 'Work | Aleksi Hakala',
     contact: 'Contact | Aleksi Hakala',
     about: 'About | Aleksi Hakala',
+    pricing: 'Pricing | Aleksi Hakala',
     project: (name: string) => `${name} | Aleksi Hakala`,
   },
 
   nav: {
     home: 'Home',
     work: 'Work',
+    pricing: 'Pricing',
     contact: 'Contact',
     homeLink: 'Aleksi Hakala, home',
     main: 'Main',
@@ -50,6 +52,7 @@ export const en = {
       'Before software, I gained experience in photography, videography, event planning and social media marketing. ' +
       'For personal hobbies I actively go to the gym and indulge in varying amounts of the Dungeons & Dragons tabletop role-playing game.',
     seeProjects: 'See my projects',
+    pricing: 'Pricing',
     contactMe: 'Contact me',
   },
 
@@ -124,6 +127,49 @@ export const en = {
     screenshots: 'Screenshots',
     openImage: (alt: string) => `Open image: ${alt}`,
     closeImage: 'Close image',
+  },
+
+  pricing: {
+    title: 'Pricing',
+    intro:
+      'Starting prices for the most common projects. Every project is a little different, ' +
+      'so you always get a written quote before any work begins.',
+    from: 'from',
+    perMonth: '/ month',
+    plansLabel: 'Services and starting prices',
+    plans: [
+      {
+        name: 'Website',
+        price: 690,
+        monthly: false,
+        text: 'A fast, responsive website for a business, an association or a personal brand.',
+        includes: ['Up to 5 pages', 'Works on phones, tablets and desktops', 'Contact form and basic SEO', 'Help with the domain and hosting'],
+      },
+      {
+        name: 'Web application',
+        price: 1400,
+        monthly: false,
+        text: 'A custom web app, such as a booking system, a customer portal or an internal tool.',
+        includes: ['Sign-in and user roles', 'Database and admin panel', 'Built with Angular or React', 'Integrations with other services'],
+      },
+      {
+        name: 'Mobile application',
+        price: 3500,
+        monthly: false,
+        text: 'An app for both iOS and Android from a single codebase.',
+        includes: ['Built with React Native and Expo', 'iOS and Android', 'Backend with Supabase', 'Help publishing to the app stores'],
+      },
+      {
+        name: 'Maintenance',
+        price: 30,
+        monthly: true,
+        text: 'Keeps your website or app secure, up to date and running.',
+        includes: ['Updates and security patches', 'Backups', 'Uptime monitoring', 'Small fixes as agreed'],
+      },
+    ],
+    note: 'All prices are starting prices. The final price depends on the scope of the project and is agreed in a written quote.',
+    ctaTitle: 'Have a project in mind?',
+    cta: 'Ask for a quote',
   },
 
   contact: {

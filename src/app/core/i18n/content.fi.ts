@@ -15,12 +15,14 @@ export const fi: SiteContent = {
     work: 'Työt | Aleksi Hakala',
     contact: 'Yhteystiedot | Aleksi Hakala',
     about: 'Tietoa minusta | Aleksi Hakala',
+    pricing: 'Hinnat | Aleksi Hakala',
     project: (name: string) => `${name} | Aleksi Hakala`,
   },
 
   nav: {
     home: 'Etusivu',
     work: 'Työt',
+    pricing: 'Hinnat',
     contact: 'Yhteystiedot',
     homeLink: 'Aleksi Hakala, etusivu',
     main: 'Päävalikko',
@@ -52,6 +54,7 @@ export const fi: SiteContent = {
       'Ennen ohjelmistoalaa keräsin kokemusta valokuvauksesta, videokuvauksesta, tapahtumien järjestämisestä ja somemarkkinoinnista. ' +
       'Vapaa-ajallani käyn ahkerasti salilla ja pelaan vaihtelevia määriä Dungeons & Dragons -roolipeliä.',
     seeProjects: 'Katso projektini',
+    pricing: 'Hinnat',
     contactMe: 'Ota yhteyttä',
   },
 
@@ -126,6 +129,49 @@ export const fi: SiteContent = {
     screenshots: 'Kuvakaappaukset',
     openImage: (alt: string) => `Avaa kuva: ${alt}`,
     closeImage: 'Sulje kuva',
+  },
+
+  pricing: {
+    title: 'Hinnat',
+    intro:
+      'Alkaen-hinnat yleisimmille projekteille. Jokainen projekti on hieman erilainen, ' +
+      'joten saat aina kirjallisen tarjouksen ennen kuin työ alkaa.',
+    from: 'alkaen',
+    perMonth: '/ kk',
+    plansLabel: 'Palvelut ja alkaen-hinnat',
+    plans: [
+      {
+        name: 'Kotisivut',
+        price: 690,
+        monthly: false,
+        text: 'Nopeat ja responsiiviset kotisivut yritykselle, yhdistykselle tai henkilöbrändille.',
+        includes: ['Enintään 5 sivua', 'Toimii puhelimella, tabletilla ja tietokoneella', 'Yhteydenottolomake ja hakukoneoptimoinnin perusteet', 'Apu verkkotunnuksen ja palvelimen kanssa'],
+      },
+      {
+        name: 'Web-sovellus',
+        price: 1400,
+        monthly: false,
+        text: 'Räätälöity web-sovellus, esimerkiksi ajanvaraus, asiakasportaali tai sisäinen työkalu.',
+        includes: ['Kirjautuminen ja käyttäjäroolit', 'Tietokanta ja hallintapaneeli', 'Toteutus Angularilla tai Reactilla', 'Integraatiot muihin palveluihin'],
+      },
+      {
+        name: 'Mobiilisovellus',
+        price: 3500,
+        monthly: false,
+        text: 'Sovellus sekä iOS:lle että Androidille yhdellä koodipohjalla.',
+        includes: ['Toteutus React Nativella ja Expolla', 'iOS ja Android', 'Taustajärjestelmä Supabasella', 'Apu sovelluskauppoihin julkaisussa'],
+      },
+      {
+        name: 'Ylläpito',
+        price: 30,
+        monthly: true,
+        text: 'Pitää sivustosi tai sovelluksesi turvallisena, ajan tasalla ja toiminnassa.',
+        includes: ['Päivitykset ja tietoturvapäivitykset', 'Varmuuskopiot', 'Käytettävyyden valvonta', 'Pienet korjaukset sopimuksen mukaan'],
+      },
+    ],
+    note: 'Kaikki hinnat ovat alkaen-hintoja. Lopullinen hinta riippuu projektin laajuudesta, ja se sovitaan kirjallisessa tarjouksessa.',
+    ctaTitle: 'Onko mielessäsi projekti?',
+    cta: 'Pyydä tarjous',
   },
 
   contact: {

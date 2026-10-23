@@ -64,6 +64,7 @@ export class NavigationComponent {
     return [
       { path: '/', label: nav.home, exact: true },
       { path: '/code', label: nav.work, exact: false },
+      { path: '/pricing', label: nav.pricing, exact: false },
       { path: '/contact', label: nav.contact, exact: false },
     ];
   });
